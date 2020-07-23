@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Oracle Web SDK June 2020</title>
+    <style>
+        body {
+            background: #fafafa;
+            color: #1a1816;
+            font-family: "Oracle Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.4;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .layout {
+            display: flex;
+            justify-content: center;
+        }
+
+        .content {
+            margin: 0 auto;
+            max-width: 750px;
+            padding: 0 1rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 200;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 200;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a:visited {
+            color: #303f9f;
+        }
+
+        .setting {
+            color: #00796b;
+        }
+
+        .method {
+            color: #303f9f;
+        }
+
+        .error {
+            color: #8d3d2e;
+        }
+
+    </style>
+</head>
+
+<body>
+    <article class="layout">
+        <main class="content">
+            <hgroup>
+                <h1>Oracle Web SDK</h1>
+                <h2>June 2020 (Version 20.6.1)</h2>
+            </hgroup>
+            <p>Welcome to the June 2020 release of the Oracle Web SDK. This update provides fixes for a few critical
+                bugs that were
+                raised recently. It also addresses a couple of enhancement requests to improve the way conversations are
+                managed.</p>
+            <section>
+                <h3>What's Fixed</h3>
+                <ul>
+                    <li>
+                        <strong>Reflected XSS attacks</strong> - While user messages have never been executable in the
+                        chat widget, the skill responses, which may contain rich HTML content that's rendered within the
+                        widget, are. Reflected XSS (Cross-site scripting) attacks may become possible when a skill
+                        returns a user's message as is (in its current state), because a user could use this message to
+                        send malicious code that's executed when the skill returns its response.
+                        <br />
+                        The user input is now sanitized before it is sent to the skill. This prevents any malicious code
+                        in the message that could be executed when the skill, by design, returns the user message as is.
+                    </li>
+                    <li>
+                        <strong>Exceptions in delegates</strong> - The SDK has been updated to handle any errors thrown
+                        by the delegate callback implementations. For these errors, the original messages are displayed
+                        or sent.
+                    </li>
+                    <li>
+                        <strong>Voice connection in client auth enabled mode</strong> - The previous release (20.5.1)
+                        introduced a regression that interfered with the order of the authentication of the voice
+                        connection in client auth-enabled mode. This has been resolved and restored to the proper order.
+                    </li>
+                    <li>
+                        <strong>Action button border</strong> - The border of action buttons has been appearing thicker
+                        than described by the specifications of the previous release. It has also been appearing in two
+                        colors on some browsers. The widget has been updated to the set the border width as 1px and to
+                        make it appear in a single color.
+                    </li>
+                    <li>
+                        <strong>Translation of 'Open Map'</strong> - When users shared their location using their
+                        device's location services, it appeared as a button entitled 'Open Map' in the conversation.
+                        Until now, the label of the button was hard-coded and couldn't be changed. This has been
+                        corrected by exposing the <code class="setting">openMap</code> field in the <code
+                            class="setting">i18n</code> setting, which allows developers to overwrite the button name
+                        and translate it to other languages.<br />
+                        For example, <code class="setting">i18n = { en: { <strong>openMap</strong>: 'Show in map' }, fr: { <strong>openMap</strong>: 'Afficher sur la carte' }}
+                        </code>
+                    </li>
+                    <li>
+                        <strong>Link color contrast in text</strong> - In the SDK's default theme, <code
+                            class="setting">WebSDK.THEME.DEFAULT</code>, the link color was very close to the color of
+                        the regular text, which made it difficult for some users to distinguish the links and the
+                        regular text. The link color has been updated to ensure a contrast ratio that's greater than 3
+                        between the links and the regular text color. The result is a clear visual distinction between
+                        the links and the rest of the text.
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>What's Improved</h3>
+                <ul>
+                    <li>
+                        <strong>Browser storage management</strong> - The storage service has been redesigned to ensure
+                        an efficient use of the browser storage for storing user conversations, and tools have been
+                        provided to give more control to the developers. The following improvements have been made to
+                        the storage service:
+                        <ul>
+                            <li>
+                                Conversations of anonymous users are now stored in <code>sessionStorage</code> and are
+                                automatically deleted when the session ends. The conversation cannot be recovered once
+                                the session ends.
+                            </li>
+                            <li>
+                                <strong><code class="setting">storageType</code></Strong> - This new setting controls
+                                the storage of user conversations with <code>userId</code> passed by the host app. It
+                                accepts one of the two values, <code class="setting">localStorage</code>, or <code
+                                    class="setting">sessionStorage</code>.<br />
+                                By default, the conversations are stored in <code class="setting">localStorage</code>,
+                                and are persisted even after the session ends. To store them temporarily, you must pass
+                                <code class="setting">storageType: 'sessionStorage'</code> in initial settings.
+                            </li>
+                            <li>
+                                <strong><code
+                                        class="method">clearConversationHistory(userId, shouldClearWidget)</code></strong>
+                                - This new API method has been added to allow clearing the conversation history for a
+                                known user from the browser's <code>localStorage</code>. The <code
+                                    class="setting">userId</code> must be a string. On passing empty or no <code
+                                    class="setting">userId</code>, current user's history is removed. It can help in
+                                recovering significant portions of <code>localStorage</code> in the user's
+                                browser.<br />
+                                &nbsp;&nbsp;If the passed <code class="setting">userId</code> is same as current user's
+                                <code class="setting">userId</code>, then you can also pass an optional boolean
+                                argument, <code class="setting">shouldClearWidget</code>, to configure whether the
+                                current chat widget UI should also be cleared on calling this API. By default, the value
+                                is <code>true</code>.
+                            </li>
+                            <li>
+                                <strong><code
+                                        class="method">clearAllConversationsHistory(shouldClearWidget)</code></strong> -
+                                This new API method clears the conversation history for all users from the browser's
+                                <code>localStorage</code>. Like <code class="method">clearConversationHistory</code>,
+                                this method can also help in recovering significant portions of
+                                <code>localStorage</code> from the user's browser.<br />
+
+                                &nbsp;&nbsp;You can also pass an optional boolean
+                                argument, <code class="setting">shouldClearWidget</code>, to configure whether the
+                                current chat widget UI should also be cleared on calling this API. By default, the value
+                                is <code>true</code>.<br />
+                                <strong>Warning</strong> - The actions taken by calling this API can not be undone. Once
+                                the messages are deleted, they cannot be recovered. Call this method sparingly
+                                and only when absolutely needed.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Validation in Delegates</strong> - The SDK now performs a validation of the modified
+                        messages returned by the delegate callback handlers. If a returned message does not follow the
+                        conversation message model, the SDK reverts to the original message.<br />
+                        The SDK handles returned values from delegates as follows:
+                        <ul>
+                            <li>No value - The SDK does not process the message further for displaying or sending.</li>
+                            <li>Falsy value (undefined, null, false) - The SDK does not process the message further for
+                                displaying or sending.</li>
+                            <li>Invalid value - The SDK reverts to the original message for displaying or sending.</li>
+                            <li>Exception/error thrown - The SDK reverts to the original message for displaying or
+                                sending.</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </section>
+        </main>
+    </article>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="oracle.cloud.oda.chat" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>ODA Hybrid App</name>
+    <description>
+        A sample Apache Cordova application showcasing ODA Web SDK integration.
+    </description>
+    <author href="https://www.oracle.com/application-development/cloud-services/digital-assistant/">
+        ODA SDK Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        </config-file>
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <config-file parent="NSMicrophoneUsageDescription" target="*-Info.plist">
+            <string>Blinking microphone indicates audio recording</string>
+        </config-file>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+            <string>Allow access to share your location when needed</string>
+        </edit-config>
+    </platform>
+    <plugin name="cordova-plugin-camera" spec="~4.1.0" />
+    <plugin name="cordova-plugin-geolocation" spec="~4.0.2" />
+    <plugin name="phonegap-plugin-speech-synthesis" spec="~0.1.1" />
+    <plugin name="cordova-plugin-audioinput" spec="~1.0.1" />
+</widget>

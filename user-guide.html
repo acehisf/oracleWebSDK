@@ -1,0 +1,3576 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Oracle Web SDK User Guide</title>
+    <style>
+        code {
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px
+        }
+
+        code {
+            padding: 2px 4px
+        }
+
+        pre {
+            display: block;
+            margin: 0 0 10px;
+            word-break: break-all;
+            word-wrap: break-word;
+            color: #333;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px
+        }
+
+        pre code {
+            padding: 0;
+            font-size: inherit;
+            color: inherit;
+            white-space: pre-wrap;
+            background-color: transparent;
+            border-radius: 0
+        }
+
+        table {
+            background-color: transparent
+        }
+
+        th {
+            text-align: left
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px
+        }
+
+        .table>thead>tr>th {
+            padding: 8px;
+            line-height: 1.4285714;
+            border-top: 1px solid #ddd
+        }
+
+        .table>tbody>tr>td,
+        .table>tbody>tr>th,
+        .table>thead>tr>td {
+            padding: 8px;
+            line-height: 1.4285714;
+            vertical-align: top;
+            border-top: 1px solid #ddd
+        }
+
+        .table>thead>tr>th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #ddd
+        }
+
+        .table>thead:first-child>tr:first-child>td,
+        .table>thead:first-child>tr:first-child>th {
+            border-top: 0
+        }
+
+        .table-bordered,
+        .table-bordered>tbody>tr>td,
+        .table-bordered>tbody>tr>th,
+        .table-bordered>thead>tr>td,
+        .table-bordered>thead>tr>th {
+            border: 1px solid #ddd
+        }
+
+        .table-bordered>thead>tr>td,
+        .table-bordered>thead>tr>th {
+            border-bottom-width: 2px
+        }
+
+        .table-striped>tbody>tr:nth-child(odd)>td,
+        .table-striped>tbody>tr:nth-child(odd)>th {
+            background-color: #f9f9f9
+        }
+
+        .hljs-comment,
+        .hljs-doctype {
+            color: #586e75
+        }
+
+        .css .hljs-tag,
+        .hljs-addition,
+        .hljs-keyword,
+        .hljs-request,
+        .hljs-status,
+        .method {
+            color: #859900
+        }
+
+        .hljs-link_url,
+        .hljs-number,
+        .hljs-rules .hljs-value,
+        .hljs-string,
+        .hljs-tag .hljs-value {
+            color: #2aa198
+        }
+
+        .css .hljs-function,
+        .hljs-built_in,
+        .hljs-id,
+        .hljs-identifier,
+        .hljs-title {
+            color: #268bd2
+        }
+
+        .hljs-attribute,
+        .hljs-class .hljs-title,
+        .hljs-type {
+            color: #b58900
+        }
+
+        *,
+        :after,
+        :before {
+            box-sizing: border-box
+        }
+
+        html {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%
+        }
+
+        a {
+            background: 0 0
+        }
+
+        a:active,
+        a:hover {
+            outline: 0
+        }
+
+        b,
+        strong {
+            font-weight: 700
+        }
+
+        h1 {
+            margin: .67em 0
+        }
+
+        pre {
+            overflow: auto
+        }
+
+        code {
+            font-size: 1em
+        }
+
+        code,
+        pre {
+            font-family: monospace, monospace
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        html {
+            font-size: .875em;
+            background: #fff;
+            color: #373d49
+        }
+
+        body,
+        html {
+            font-family: "Oracle Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            height: 100%
+        }
+
+        body {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 2rem
+        }
+
+        ol,
+        ul {
+            margin-bottom: .83999rem;
+            padding-top: .16001rem
+        }
+
+        li {
+            font-feature-settings: 'kern'1, 'onum'1, 'liga'1;
+            margin-left: 1rem
+        }
+
+        li>ol,
+        li>ul {
+            margin-bottom: 0
+        }
+
+        p {
+            padding-top: .66001rem;
+            font-feature-settings: 'kern'1, 'onum'1, 'liga'1;
+            margin-top: 0
+        }
+
+        p,
+        pre {
+            margin-bottom: 1.33999rem
+        }
+
+        pre {
+            font-size: 1rem;
+            padding: .66001rem 9.5px 9.5px;
+            line-height: 2rem;
+            background: linear-gradient(to bottom, #fff 0, #fff .75rem, #f5f7fa .75rem, #f5f7fa 2.75rem, #fff 2.75rem, #fff 4rem);
+            background-size: 100% 4rem;
+            border-color: #d3daea
+        }
+
+        td,
+        th {
+            padding: 12px
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Oracle Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-feature-settings: 'dlig'1, 'liga'1, 'lnum'1, 'kern'1;
+            font-style: normal;
+            font-weight: 500;
+            margin-top: 0
+        }
+
+        h1 {
+            line-height: 3rem;
+            font-size: 2.0571429rem;
+            margin-bottom: .21999rem;
+            padding-top: .78001rem
+        }
+
+        h2 {
+            font-size: 1.953125rem;
+            margin-bottom: .1835837rem;
+            padding-top: .8164163rem
+        }
+
+        h2,
+        h3 {
+            line-height: 3rem
+        }
+
+        h3 {
+            font-size: 1.6457143rem;
+            margin-bottom: .07599rem;
+            padding-top: .92401rem
+        }
+
+        h4 {
+            font-size: 1.5625rem;
+            margin-bottom: .546865rem;
+            padding-top: .453135rem
+        }
+
+        h5 {
+            font-size: 1.25rem;
+            margin-bottom: -.56251rem;
+            padding-top: .56251rem
+        }
+
+        a {
+            cursor: pointer;
+            color: #35d7bb;
+            text-decoration: none
+        }
+
+        a:focus,
+        a:hover {
+            border-bottom-color: #35d7bb;
+            color: #dff9f4
+        }
+
+        #preview .table {
+            width: auto
+        }
+
+        body {
+            max-width: 1024px;
+            margin: 0 auto;
+            overflow: auto;
+            padding: 2%
+        }
+
+        @media screen and (min-width:27.5em) {
+            html {
+                font-size: .875em
+            }
+
+            body {
+                font-size: 1rem
+            }
+
+            ol,
+            ul {
+                margin-bottom: .83999rem;
+                padding-top: .16001rem
+            }
+
+            p {
+                padding-top: .66001rem
+            }
+
+            p,
+            pre {
+                margin-bottom: 1.33999rem
+            }
+
+            pre {
+                font-size: 1rem;
+                padding-top: .66001rem
+            }
+
+            h1 {
+                font-size: 2.0571429rem;
+                margin-bottom: .21999rem;
+                padding-top: .78001rem
+            }
+
+            h2 {
+                font-size: 1.953125rem;
+                margin-bottom: .1835837rem;
+                padding-top: .8164163rem
+            }
+
+            h3 {
+                font-size: 1.6457143rem;
+                margin-bottom: .07599rem;
+                padding-top: .92401rem
+            }
+
+            h4 {
+                font-size: 1.5625rem;
+                margin-bottom: .546865rem;
+                padding-top: .453135rem
+            }
+
+            h5 {
+                font-size: 1.25rem;
+                margin-bottom: -.56251rem;
+                padding-top: .56251rem
+            }
+        }
+
+        @media screen and (min-width:46.25em) {
+            html {
+                font-size: .875em
+            }
+
+            body {
+                font-size: 1rem
+            }
+
+            ol,
+            ul {
+                margin-bottom: .83999rem;
+                padding-top: .16001rem
+            }
+
+            p {
+                padding-top: .66001rem
+            }
+
+            p,
+            pre {
+                margin-bottom: 1.33999rem
+            }
+
+            pre {
+                font-size: 1rem;
+                padding-top: .66001rem
+            }
+
+            h1 {
+                font-size: 2.0571429rem;
+                margin-bottom: .21999rem;
+                padding-top: .78001rem
+            }
+
+            h2 {
+                font-size: 1.953125rem;
+                margin-bottom: .1835837rem;
+                padding-top: .8164163rem
+            }
+
+            h3 {
+                font-size: 1.6457143rem;
+                margin-bottom: .07599rem;
+                padding-top: .92401rem
+            }
+
+            h4 {
+                font-size: 1.5625rem;
+                margin-bottom: .546865rem;
+                padding-top: .453135rem
+            }
+
+            h5 {
+                font-size: 1.25rem;
+                margin-bottom: -.56251rem;
+                padding-top: .56251rem
+            }
+        }
+
+        @media screen and (min-width:62.5em) {
+            html {
+                font-size: .875em
+            }
+
+            body {
+                font-size: 1rem
+            }
+
+            ol,
+            ul {
+                margin-bottom: .83999rem;
+                padding-top: .16001rem
+            }
+
+            p {
+                padding-top: .66001rem
+            }
+
+            p,
+            pre {
+                margin-bottom: 1.33999rem
+            }
+
+            pre {
+                font-size: 1rem;
+                padding-top: .66001rem
+            }
+
+            h1 {
+                font-size: 2.0571429rem;
+                margin-bottom: .21999rem;
+                padding-top: .78001rem
+            }
+
+            h2 {
+                font-size: 1.953125rem;
+                margin-bottom: .1835837rem;
+                padding-top: .8164163rem
+            }
+
+            h3 {
+                font-size: 1.6457143rem;
+                margin-bottom: .07599rem;
+                padding-top: .92401rem
+            }
+
+            h4 {
+                font-size: 1.5625rem;
+                margin-bottom: .546865rem;
+                padding-top: .453135rem
+            }
+
+            h5 {
+                font-size: 1.25rem;
+                margin-bottom: -.56251rem;
+                padding-top: .56251rem
+            }
+        }
+
+        @media screen and (min-width:87.5em) {
+            html {
+                font-size: .875em
+            }
+
+            body {
+                font-size: 1rem
+            }
+
+            ol,
+            ul {
+                margin-bottom: .83999rem;
+                padding-top: .16001rem
+            }
+
+            p {
+                padding-top: .66001rem
+            }
+
+            p,
+            pre {
+                margin-bottom: 1.33999rem
+            }
+
+            pre {
+                font-size: 1rem;
+                padding-top: .66001rem
+            }
+
+            h1 {
+                font-size: 2.0571429rem;
+                margin-bottom: .21999rem;
+                padding-top: .78001rem
+            }
+
+            h2 {
+                font-size: 1.953125rem;
+                margin-bottom: .1835837rem;
+                padding-top: .8164163rem
+            }
+
+            h3 {
+                font-size: 1.6457143rem;
+                margin-bottom: .07599rem;
+                padding-top: .92401rem
+            }
+
+            h4 {
+                font-size: 1.5625rem;
+                margin-bottom: .546865rem;
+                padding-top: .453135rem
+            }
+
+            h5 {
+                font-size: 1.25rem;
+                margin-bottom: -.56251rem;
+                padding-top: .56251rem
+            }
+        }
+
+    </style>
+</head>
+
+<h1 class="code-line" data-line-start=0 data-line-end=1><a id="Web_SDK_0"></a>Web SDK</h1>
+<p class="has-line-data" data-line-start="2" data-line-end="3">Use Oracle Digital Assistant’s Client SDK for JavaScript
+    to add live messaging to your website or web app.</p>
+<h2 class="code-line" data-line-start=4 data-line-end=5><a id="Installation_4"></a>Installation</h2>
+<p class="has-line-data" data-line-start="6" data-line-end="7">Adding Web SDK to your project is easy. To get started,
+    you need to use the Script Tag method.</p>
+<ol>
+    <li class="has-line-data" data-line-start="7" data-line-end="8">First, save web-sdk.js in your project directory.
+        Keep note of its location.</li>
+    <li class="has-line-data" data-line-start="8" data-line-end="9">Add the following code towards the end of the head
+        section on your HTML page. Replace <code>&lt;Server URI&gt;</code> with location of web-sdk.js, and
+        <code>&lt;WebSDK namespace&gt;</code> with a name for the library, which is typically <code>Bots</code>. The
+        library will be referred by that name and used to make the API calls.</li>
+</ol>
+<pre><code class="has-line-data" data-line-start="10" data-line-end="37" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">var</span> chatSettings = {
+        URI: <span class="hljs-string">'&lt;Server URI&gt;'</span>,
+        channelId: <span class="hljs-string">'&lt;Channel ID&gt;'</span>,
+        userId: <span class="hljs-string">'&lt;User ID&gt;'</span>
+    };
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initSdk</span>(<span class="hljs-params">name</span>) </span>{
+        <span class="hljs-comment">// Default name is Bots</span>
+        <span class="hljs-keyword">if</span> (!name) {
+            name = <span class="hljs-string">'Bots'</span>;
+        }
+        setTimeout(() =&gt; {
+            <span class="hljs-keyword">const</span> Bots = <span class="hljs-keyword">new</span> WebSDK(chatSettings); <span class="hljs-comment">// Initiate library with configuration</span>
+            Bots.connect()                         <span class="hljs-comment">// Connect to server</span>
+                .then(() =&gt; {
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connection Successful"</span>);
+                })
+                .catch((reason) =&gt; {
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connection failed"</span>);
+                    <span class="hljs-built_in">console</span>.log(reason);
+                });
+            <span class="hljs-built_in">window</span>[name] = Bots;
+        });
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"&lt;WebSDK URL&gt;"</span> <span class="hljs-attribute">onload</span>=<span class="hljs-value">"initSdk('&lt;WebSDK namespace&gt;')"</span>&gt;</span><span class="undefined">
+</span></code></pre>
+<p class="has-line-data" data-line-start="38" data-line-end="39">If you are connecting to a channel with client
+    authentication enabled, minor modifications are needed. Along with setting the <code>clientAuthEnabled</code>
+    property to true, you must also include a function that generates and passes a JWT token. The function must return a
+    Promise that resolves to a signed JWT token string. The SDK will use this function to generate a new token whenever
+    it needs to establish a new connection and the existing token is expired. The script would look something like this:
+</p>
+<pre><code class="has-line-data" data-line-start="41" data-line-end="74" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">var</span> chatSettings = {
+        URI: <span class="hljs-string">'&lt;Server URI&gt;'</span>,
+        clientAuthEnabled: <span class="hljs-literal">true</span>
+    };
+    <span class="hljs-keyword">var</span> generateToken = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve) =&gt; {
+            fetch(<span class="hljs-string">'https://yourbackend.com/endpointToGenerateJWTToken'</span>).then((token) =&gt; {
+                resolve(token);
+            })
+        });
+    }
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initSdk</span>(<span class="hljs-params">name</span>) </span>{
+        <span class="hljs-comment">// Default name is Bots</span>
+        <span class="hljs-keyword">if</span> (!name) {
+            name = <span class="hljs-string">'Bots'</span>;
+        }
+        setTimeout(() =&gt; {
+            <span class="hljs-keyword">const</span> Bots = <span class="hljs-keyword">new</span> WebSDK(chatSettings, generateToken);  <span class="hljs-comment">// Initiate library with configuration</span>
+            Bots.connect()                                         <span class="hljs-comment">// Connect to server</span>
+                .then(() =&gt; {
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connection Successful"</span>);
+                })
+                .catch((reason) =&gt; {
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connection failed"</span>);
+                    <span class="hljs-built_in">console</span>.log(reason);
+                });
+            <span class="hljs-built_in">window</span>[name] = Bots;
+        });
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"&lt;WebSDK URL&gt;"</span> <span class="hljs-attribute">onload</span>=<span class="hljs-value">"initSdk('&lt;WebSDK namespace&gt;')"</span>&gt;</span><span class="undefined">
+</span></code></pre>
+<p class="has-line-data" data-line-start="75" data-line-end="76">And <em>voila!</em> You have an app integrated with
+    Oracle Web SDK.</p>
+<h3 class="code-line" data-line-start=77 data-line-end=78><a id="Importing_SDK_library_in_JavaScript_77"></a>Importing
+    SDK library in JavaScript</h3>
+<p class="has-line-data" data-line-start="79" data-line-end="80">To import the library dynamically in JavaScript,
+    following utility function can be used, which is based on <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement#Dynamically_importing_scripts">MDN
+        example</a> for importing scripts dynamically:</p>
+<pre><code class="has-line-data" data-line-start="82" data-line-end="94" class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchSDK</span>(<span class="hljs-params">src, onloadFunction</span>) </span>{
+    <span class="hljs-keyword">const</span> script = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>);
+    script.type = <span class="hljs-string">'application/javascript'</span>;
+    script.async = <span class="hljs-literal">true</span>;    <span class="hljs-comment">// load the script asynchronously</span>
+    script.defer = <span class="hljs-literal">true</span>;    <span class="hljs-comment">// fallback support for browsers that does not support async</span>
+    script.onload = onloadFunction;
+    <span class="hljs-built_in">document</span>.head.appendChild(script);
+    script.src = src;
+}
+
+fetchSDK(<span class="hljs-string">'&lt;path of the web-sdk&gt;'</span>, initSdk);
+</code></pre>
+<h2 class="code-line" data-line-start=95 data-line-end=96><a id="Browser_Support_95"></a>Browser Support</h2>
+<p class="has-line-data" data-line-start="96" data-line-end="97">The SDK is supported on these browsers on Mac, Windows,
+    and Linux:</p>
+<ul>
+    <li class="has-line-data" data-line-start="97" data-line-end="98">Firefox</li>
+    <li class="has-line-data" data-line-start="98" data-line-end="99">Chrome</li>
+    <li class="has-line-data" data-line-start="99" data-line-end="100">Safari</li>
+    <li class="has-line-data" data-line-start="100" data-line-end="102">Edge</li>
+</ul>
+<p class="has-line-data" data-line-start="102" data-line-end="103">For mobile platforms the following browsers are
+    supported:</p>
+<ul>
+    <li class="has-line-data" data-line-start="103" data-line-end="104">Android browser</li>
+    <li class="has-line-data" data-line-start="104" data-line-end="106">iOS Safari</li>
+</ul>
+<p class="has-line-data" data-line-start="106" data-line-end="107">Internet Explorer is <strong>NOT</strong> supported
+    by the SDK.</p>
+<h2 class="code-line" data-line-start=108 data-line-end=109><a id="SDK_Security_108"></a>SDK Security</h2>
+<p class="has-line-data" data-line-start="110" data-line-end="111">The Web SDK can connect to Digital Assistant web
+    channel in two modes:</p>
+<h3 class="code-line" data-line-start=112 data-line-end=113><a id="Channel_with_Client_Auth_Disabled_112"></a>Channel
+    with Client Auth Disabled</h3>
+<p class="has-line-data" data-line-start="114" data-line-end="115">In this case, only connections made from whitelisted
+    domains are allowed at the server.</p>
+<p class="has-line-data" data-line-start="116" data-line-end="117">This use case is recommended when the client
+    application can’t generate a signed JWT Token (static website or no authentication mechanism for the web/mobile app)
+    but wants to have ODA integration. It can also be used when the chat widget is already secured and visible only for
+    authenticated users in the client platforms (Web Application with protected page).</p>
+<p class="has-line-data" data-line-start="118" data-line-end="119">When connection to such channels, the
+    <strong>channelId</strong> must be passed as a setting parameter during SDK initialization. The
+    <strong>userId</strong> is also required to establish the connection. If you don’t provide a value during
+    initialization, then the SDK generates a random userId…</p>
+<pre><code class="has-line-data" data-line-start="121" data-line-end="127" class="language-js">{
+    URI: <span class="hljs-string">'oda-instance.com'</span>,
+    channelId: <span class="hljs-string">'626f5db1-f99a-4984-86ee-df2d734537e6'</span>,
+    userId: <span class="hljs-string">'Jessica'</span>
+}
+</code></pre>
+<h3 class="code-line" data-line-start=128 data-line-end=129><a id="Channel_with_Client_Auth_Enabled_128"></a>Channel
+    with Client Auth Enabled</h3>
+<p class="has-line-data" data-line-start="130" data-line-end="131">In this case, in addition to domain whitelisting,
+    client authentication is enforced by signed JWT tokens.</p>
+<p class="has-line-data" data-line-start="132" data-line-end="133">The token generation and signing must be done by the
+    client in the backend server, preferable after user/client authentication, which is capable of maintaining the keyId
+    and keySecret safe.</p>
+<p class="has-line-data" data-line-start="134" data-line-end="135">When the SDK needs to establish a connection with the
+    ODA server, it first requests a JWT token from the client and then sends it along with the connection request. The
+    ODA server validates the token signature and obtains the claim set from the JWT payload to verify the token to
+    establish the connection.</p>
+<p class="has-line-data" data-line-start="136" data-line-end="137">To enable this mode, two fields are required during
+    SDK initialization: <strong>clientAuthEnabled: true</strong> must be passed in the SDK settings parameter, and a
+    <strong>token generator function</strong> must be passed as the second parameter. The function must return a
+    Promise, which is resolved to return a signed JWT token string.</p>
+<pre><code class="has-line-data" data-line-start="139" data-line-end="152" class="language-js"><span class="hljs-keyword">const</span> generateToken = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve) =&gt; {
+        fetch(<span class="hljs-string">'https://yourbackend.com/endpointToGenerateJWTToken'</span>).then((token) =&gt; {
+            resolve(token);
+        });
+    });
+}
+
+Bots.init({
+    URI: <span class="hljs-string">'oda-instance.com'</span>,
+    clientAuthEnabled: <span class="hljs-literal">true</span>
+}, generateToken);
+</code></pre>
+<h3 class="code-line" data-line-start=153 data-line-end=154><a id="JWT_Token_153"></a>JWT Token</h3>
+<p class="has-line-data" data-line-start="155" data-line-end="156">The JWT token generation and signing are the
+    responsibility of the client application, some of the token payload fields are mandatory and are validated by the
+    ODA server.</p>
+<p class="has-line-data" data-line-start="157" data-line-end="158">Clients must use the HS256 signing algorithm to sign
+    the tokens. The tokens must be signed by the secret key of the client auth enabled channel to which the connection
+    is made. The body of the token must have the following claims:</p>
+<ul>
+    <li class="has-line-data" data-line-start="159" data-line-end="160">iat - issued at time</li>
+    <li class="has-line-data" data-line-start="160" data-line-end="161">exp - expiry time</li>
+    <li class="has-line-data" data-line-start="161" data-line-end="162">channelId - channel ID</li>
+    <li class="has-line-data" data-line-start="162" data-line-end="164">userId - user ID</li>
+</ul>
+<p class="has-line-data" data-line-start="164" data-line-end="165">Here’s a sample signed JWT token:</p>
+<p class="has-line-data" data-line-start="166" data-line-end="167">Encoded token:</p>
+<pre><code class="has-line-data" data-line-start="169" data-line-end="171">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NzY3NDcyMDUsImV4cCI6MTU3Njc1MTExNywiY2hhbm5lbElkIjoiNDkyMDU5NWMtZWM3OS00NjE3LWFmOWYtNTk1MGQ2MDNmOGJiIiwidXNlcklkIjoiSm9obiIsImp0aSI6ImQzMjFjZDA2LTNhYTYtNGZlZS05NTBlLTYzZGNiNGVjODJhZCJ9.lwomlrI6XYR4nPQk0cIvyU_YMf4gYvfVpUiBjYihbUQ
+</code></pre>
+<p class="has-line-data" data-line-start="172" data-line-end="173">Decoded token:</p>
+<p class="has-line-data" data-line-start="174" data-line-end="175">Header:</p>
+<pre><code class="has-line-data" data-line-start="177" data-line-end="182" class="language-json">{
+    "<span class="hljs-attribute">typ</span>": <span class="hljs-value"><span class="hljs-string">"JWT"</span></span>,
+    "<span class="hljs-attribute">alg</span>": <span class="hljs-value"><span class="hljs-string">"HS256"</span>
+</span>}
+</code></pre>
+<p class="has-line-data" data-line-start="183" data-line-end="184">Payload:</p>
+<pre><code class="has-line-data" data-line-start="186" data-line-end="193" class="language-json">{
+    "<span class="hljs-attribute">iat</span>": <span class="hljs-value"><span class="hljs-number">1576747205</span></span>,
+    "<span class="hljs-attribute">exp</span>": <span class="hljs-value"><span class="hljs-number">1576748406</span></span>,
+    "<span class="hljs-attribute">channelId</span>": <span class="hljs-value"><span class="hljs-string">"4920595c-ec79-4617-af9f-5950d603f8bb"</span></span>,
+    "<span class="hljs-attribute">userId</span>": <span class="hljs-value"><span class="hljs-string">"John"</span>
+</span>}
+</code></pre>
+<p class="has-line-data" data-line-start="194" data-line-end="195">Any additional claims passed in the payload do not
+    affect the client authentication mechanism.</p>
+<h2 class="code-line" data-line-start=196 data-line-end=197><a id="Settings_196"></a>Settings</h2>
+<p class="has-line-data" data-line-start="198" data-line-end="199">Use these properties to configure the chat widget:
+</p>
+<h3 class="code-line" data-line-start=200 data-line-end=201><a id="Network_Configuration_200"></a>Network Configuration
+</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Property name</th>
+            <th>Optional</th>
+            <th>Default Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>URI</td>
+            <td>No</td>
+            <td></td>
+            <td>Host name in ODA instance URL. Only the host section between the scheme, <code>https://</code>, and
+                first path, <code>/</code>, needs to be passed here.</td>
+        </tr>
+        <tr>
+            <td>channelId</td>
+            <td>No</td>
+            <td></td>
+            <td>Web Channel ID</td>
+        </tr>
+        <tr>
+            <td>userId</td>
+            <td>Yes</td>
+            <td>Random generated value</td>
+            <td>Unique identifier for user, gets initialized by SDK if not provided</td>
+        </tr>
+        <tr>
+            <td>clientAuthEnabled</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Used to determine whether SDK is connecting to client authentication enabled channel. This must be set
+                to true to connect to such channel and use JWT token for authentication.</td>
+        </tr>
+    </tbody>
+</table>
+<h3 class="code-line" data-line-start=208 data-line-end=209><a id="Feature_Flags_208"></a>Feature Flags</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Property name</th>
+            <th>Optional</th>
+            <th>Default Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>displayActionsAsPills</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Display action buttons as pills</td>
+        </tr>
+        <tr>
+            <td>enableAttachment</td>
+            <td>Yes</td>
+            <td><code>true</code></td>
+            <td>Flag to configure attachment sharing in the chat widget</td>
+        </tr>
+        <tr>
+            <td>enableAutocomplete</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to enable autocomplete feature when user types a message to the skill</td>
+        </tr>
+        <tr>
+            <td>enableBotAudioResponse</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to configure how the skill’s responses are uttered. If true, the skill’s responses are spoken using
+                the Web API.</td>
+        </tr>
+        <tr>
+            <td>enableClearMessage</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to enable button to clear messages on the chat widget header</td>
+        </tr>
+        <tr>
+            <td>enableHeadless</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to use the SDK without its UI. Allows developers to develop their own UI for chat.</td>
+        </tr>
+        <tr>
+            <td>enableLocalConversationHistory</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to enable loading previous conversations for given userId on the given browser when widget is
+                initialized</td>
+        </tr>
+        <tr>
+            <td>enableLongPolling</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Use http requests to connect to server if WebSocket fails to connect</td>
+        </tr>
+        <tr>
+            <td>enableSecureConnection</td>
+            <td>Yes</td>
+            <td><code>true</code></td>
+            <td>Flag to configure secure communication - https vs http and wss vs ws</td>
+        </tr>
+        <tr>
+            <td>enableSpeech</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to use the speech recognition service to convert the user voice to text messages</td>
+        </tr>
+        <tr>
+            <td>enableSpeechAutoSend</td>
+            <td>Yes</td>
+            <td><code>true</code></td>
+            <td>Flag to enable or disable automatically sending voice recognized text to chat server</td>
+        </tr>
+        <tr>
+            <td>enableTimestamp</td>
+            <td>Yes</td>
+            <td><code>true</code></td>
+            <td>Flag to enable read timestamp for messages</td>
+        </tr>
+        <tr>
+            <td>openChatOnLoad</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to expand chat widget when page is loaded</td>
+        </tr>
+        <tr>
+            <td>openLinksInNewWindow</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>If true, when a link in a message is clicked, the target is opened in a new window instead of following
+                the user’s browser preference</td>
+        </tr>
+        <tr>
+            <td>showConnectionStatus</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to enable display of connection status in header</td>
+        </tr>
+        <tr>
+            <td>showPrevConvStatus</td>
+            <td>Yes</td>
+            <td><code>true</code></td>
+            <td>Flag to configure display of status message at the end of older messages from previous conversations
+            </td>
+        </tr>
+        <tr>
+            <td>showTypingIndicator</td>
+            <td>Yes</td>
+            <td><code>true</code></td>
+            <td>Flag to display chat bubble when waiting for skill’s response</td>
+        </tr>
+        <tr>
+            <td>disablePastActions</td>
+            <td>Yes</td>
+            <td><code>'all'</code></td>
+            <td>Field to disable button clicks on messages that user has interacted with. Allowed values
+                <code>all</code>, <code>none</code>, and <code>postback</code></td>
+        </tr>
+    </tbody>
+</table>
+<h3 class="code-line" data-line-start=230 data-line-end=231><a id="Functionality_Configuration_230"></a>Functionality
+    Configuration</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Property name</th>
+            <th>Optional</th>
+            <th>Default Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>initBotAudioMuted</td>
+            <td>Yes</td>
+            <td><code>true</code></td>
+            <td>Only applicable when <code>enableBotAudioResponse</code> is <code>true</code>. This flag determines
+                whether the skill message utterance will initially be active or muted. By default, it is set to
+                <code>true</code> and the utterance is muted.</td>
+        </tr>
+        <tr>
+            <td>enableAutocompleteClientCache</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to enable the client side cache to minimize server calls when the user uses the autocomplete
+                feature</td>
+        </tr>
+        <tr>
+            <td>customHeaderElementId</td>
+            <td>Yes</td>
+            <td></td>
+            <td>HTML element ID of the div to add to the chat widget header. Used for adding additional elements to the
+                chat widget header.</td>
+        </tr>
+        <tr>
+            <td>delegate</td>
+            <td>Yes</td>
+            <td></td>
+            <td>Object that enables you to set a delegate to receive callbacks before certain events in the
+                conversation. More detail is provided later in this document.</td>
+        </tr>
+        <tr>
+            <td>embedded</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to activate embedded mode for the chat widget</td>
+        </tr>
+        <tr>
+            <td>targetElement</td>
+            <td>Yes (<code>embedded</code> must be true)</td>
+            <td></td>
+            <td>ID of the HTML element, such as <code>div</code>, in which to embed the chat widget. The element must
+                have some dimensions set (width and height), as the widget takes the dimensions of the container div.
+            </td>
+        </tr>
+        <tr>
+            <td>embeddedVideo</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>If true, YouTube video links in the text messages can be played within the chat widget</td>
+        </tr>
+        <tr>
+            <td>embedTopStickyId</td>
+            <td>Yes</td>
+            <td></td>
+            <td>ID of element to be added as a pinned content at top of chat</td>
+        </tr>
+        <tr>
+            <td>embedTopScrollId</td>
+            <td>Yes</td>
+            <td></td>
+            <td>ID of element to be added as a scrolling content at top of chat</td>
+        </tr>
+        <tr>
+            <td>embedBottomScrollId</td>
+            <td>Yes</td>
+            <td></td>
+            <td>ID of element to be added as a scrolling content at bottom of chat</td>
+        </tr>
+        <tr>
+            <td>embedBottomStickyId</td>
+            <td>Yes</td>
+            <td></td>
+            <td>ID of element to be added as a pinned content at bottom of chat</td>
+        </tr>
+        <tr>
+            <td>isDebugMode</td>
+            <td>Yes</td>
+            <td><code>false</code></td>
+            <td>Flag to enable debug mode</td>
+        </tr>
+        <tr>
+            <td>initUserHiddenMessage</td>
+            <td>Yes</td>
+            <td></td>
+            <td>A user message to send once the chat widget is ready without displaying the message in the chat widget.
+                Used to initiate the conversation automatically. The message can be a text string or a message object.
+            </td>
+        </tr>
+        <tr>
+            <td>initUserProfile</td>
+            <td>Yes</td>
+            <td></td>
+            <td>Initializes the user profile before the conversation starts. The profile payload must be of format
+                <code>{ profile: {...} }</code>. The profile is updated before sending the value in
+                <code>initUserHiddenMessage</code>.</td>
+        </tr>
+        <tr>
+            <td>i18n</td>
+            <td>Yes</td>
+            <td><code>{'en': {...}}</code></td>
+            <td>Object that contains locale fields; each locale maintains i18n key-value pairs for certain strings that
+                are used in the widget. See the Custom Text section for the strings that you can customize.</td>
+        </tr>
+        <tr>
+            <td>locale</td>
+            <td>Yes</td>
+            <td><code>'en'</code></td>
+            <td>The default locale which is used for the informational text in the SDK. The locale passed has higher
+                preference over users’ browser locales. If there isn’t an exact match, then the SDK attempts to match
+                the closest language. For example, if the locale is <code>'da-dk'</code>, but i18n translations are
+                provided only for <code>'da'</code>, then the <code>'da'</code> translation is used. In absence of
+                translations for passed locale, translations are searched and applied for browser locales. In absence of
+                translations for any of them, the default locale, <code>'en'</code> is used for translations.</td>
+        </tr>
+        <tr>
+            <td>messageCacheSizeLimit</td>
+            <td>Yes</td>
+            <td><code>2000</code></td>
+            <td>Maximum number of messages to be saved in localStorage at a time</td>
+        </tr>
+        <tr>
+            <td>readMark</td>
+            <td>Yes</td>
+            <td><code>'✓'</code></td>
+            <td>symbol for read messages, disabled if enableTimestamp is set to false</td>
+        </tr>
+        <tr>
+            <td>speechLocale</td>
+            <td>Yes</td>
+            <td><code>'en-us'</code></td>
+            <td>The locale of the voice recognition the user is expected to speak in. The supported locales are
+                <code>'en-us</code>, <code>'es-es'</code>, and <code>'fr-fr'</code>.</td>
+        </tr>
+        <tr>
+            <td>skillVoices</td>
+            <td>Yes</td>
+            <td>System language</td>
+            <td>Array containing preferred voices to use for narrating responses. Each item in the array should be an
+                object with two fields: <code>lang</code>, and <code>name</code>. <code>name</code> is optional. The
+                first item that matches a voice that’s available in the system will be used for the narration.</td>
+        </tr>
+        <tr>
+            <td>storageType</td>
+            <td>Yes</td>
+            <td><code>'localStorage'</code></td>
+            <td>Web storage mechanism that is used to store conversation history of users whose <code>userId</code> is
+                passed by the host app. The supported values are <code>'localStorage'</code> and
+                <code>'sessionStorage'</code>. Anonymous users’ conversations are always stored in
+                <code>sessionStorage</code>, and deleted automatically when the browser session ends.</td>
+        </tr>
+        <tr>
+            <td>theme</td>
+            <td>Yes</td>
+            <td><code>'default'</code></td>
+            <td>Chat widget theme. The supported values are <code>'default'</code>, a dark blue theme,
+                <code>'redwood-dark</code>, a dark redwood theme, and <code>'classic'</code>, a light blue theme.</td>
+        </tr>
+        <tr>
+            <td>typingIndicatorTimeout</td>
+            <td>Yes</td>
+            <td><code>20</code></td>
+            <td>Allows setting the time in number of seconds after which the typing indicator is automatically removed
+                if the chat widget has not yet received the response.</td>
+        </tr>
+    </tbody>
+</table>
+<h3 class="code-line" data-line-start=257 data-line-end=258><a id="Layout_Modification_257"></a>Layout Modification</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Property name</th>
+            <th>Optional</th>
+            <th>Default Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>badgePosition</td>
+            <td>Yes</td>
+            <td><code>{&quot;top&quot;: &quot;0&quot;, &quot;right&quot;: &quot;0&quot;}</code></td>
+            <td>Position of the notification badge icon with respect to the skill button</td>
+        </tr>
+        <tr>
+            <td>colors</td>
+            <td>Yes</td>
+            <td><code>{&quot;branding&quot;: &quot;#1B8FD2&quot;, &quot;text&quot;: &quot;#212121&quot;, &quot;textLight&quot;: &quot;#737373&quot;}</code>
+            </td>
+            <td>Colors used in the chat widget. See the Custom Colors section for more details.</td>
+        </tr>
+        <tr>
+            <td>conversationBeginPosition</td>
+            <td>Yes</td>
+            <td><code>'top'</code></td>
+            <td>Starting position of the conversation in the widget. If set to <code>'top'</code>, the first messages
+                appear on the top of widget. If <code>'bottom'</code>, they appear on the bottom.</td>
+        </tr>
+        <tr>
+            <td>font</td>
+            <td>Yes</td>
+            <td><code>'16px &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif'</code></td>
+            <td>Font for chat widget</td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>Yes</td>
+            <td><code>'620px'</code></td>
+            <td>Height of chat widget. Must be set to one of <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a> values</td>
+        </tr>
+        <tr>
+            <td>messagePadding</td>
+            <td>Yes</td>
+            <td><code>'15px'</code></td>
+            <td>Padding around messages in chat widget</td>
+        </tr>
+        <tr>
+            <td>position</td>
+            <td>Yes</td>
+            <td><code>{bottom: '20px', right: '20px'}</code></td>
+            <td>Field to specify where to place the chat widget in the browser window. Must be passed as a JSON object
+            </td>
+        </tr>
+        <tr>
+            <td>theme</td>
+            <td>Yes</td>
+            <td><code>default</code></td>
+            <td>Primary layout theme. Three themes are available - ‘default’, ‘redwood-dark’, and ‘classic’.</td>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>Yes</td>
+            <td><code>'375px'</code></td>
+            <td>Width of chat widget. Must be set to one of <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a> values</td>
+        </tr>
+    </tbody>
+</table>
+<h3 class="code-line" data-line-start=270 data-line-end=271><a id="Custom_Icons_270"></a>Custom Icons</h3>
+<p class="has-line-data" data-line-start="272" data-line-end="273">The icons used in the widget can be customized in two
+    ways - URL of the image asset, or an SVG string. For the icons that support SVG strings, you can pass the raw SVG
+    data and the widget renders it as an inline SVG. SVG string allows for faster loading of image, ability to animate
+    it, or change its color. The theme color is applied to SVG strings for attachment, send, and mic buttons, but not
+    other image assets.</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Property name</th>
+            <th>SVG String Compatible</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>botButtonIcon</td>
+            <td>No</td>
+            <td>Chat bot button, displayed as the minimized chat button</td>
+        </tr>
+        <tr>
+            <td>logoIcon</td>
+            <td>No</td>
+            <td>Chat logo icon, displayed at the header of the chat widget</td>
+        </tr>
+        <tr>
+            <td>botIcon</td>
+            <td>No</td>
+            <td>Icon alongside skill response messages. If not provided, no icon is displayed</td>
+        </tr>
+        <tr>
+            <td>personIcon</td>
+            <td>No</td>
+            <td>Icon alongside user messages. If not provided, no icon is displayed</td>
+        </tr>
+        <tr>
+            <td>chatBubbleIcon</td>
+            <td>Yes</td>
+            <td>Loading chat bubble icon</td>
+        </tr>
+        <tr>
+            <td>clearMessageIcon</td>
+            <td>Yes</td>
+            <td>Clear message button icon at widget header</td>
+        </tr>
+        <tr>
+            <td>audioResponseOffIcon</td>
+            <td>Yes</td>
+            <td>Icon of toggle button when audio responses are turned off</td>
+        </tr>
+        <tr>
+            <td>audioResponseOnIcon</td>
+            <td>Yes</td>
+            <td>Icon of toggle button when audio responses are turned on</td>
+        </tr>
+        <tr>
+            <td>closeIcon</td>
+            <td>Yes</td>
+            <td>Icon for button to minimize chat widget at widget header</td>
+        </tr>
+        <tr>
+            <td>attachmentIcon</td>
+            <td>Yes</td>
+            <td>Attachment upload button icon</td>
+        </tr>
+        <tr>
+            <td>sendIcon</td>
+            <td>Yes</td>
+            <td>Send message button icon</td>
+        </tr>
+        <tr>
+            <td>micIcon</td>
+            <td>Yes</td>
+            <td>Mic button icon</td>
+        </tr>
+        <tr>
+            <td>audioIcon</td>
+            <td>No</td>
+            <td>Audio attachment icon, displayed when attachment source URL is not reachable</td>
+        </tr>
+        <tr>
+            <td>fileIcon</td>
+            <td>No</td>
+            <td>File attachment icon</td>
+        </tr>
+        <tr>
+            <td>imageIcon</td>
+            <td>No</td>
+            <td>Image attachment icon, displayed when attachment source URL is not reachable</td>
+        </tr>
+        <tr>
+            <td>videoIcon</td>
+            <td>No</td>
+            <td>Video attachment icon, displayed when attachment source URL is not reachable</td>
+        </tr>
+        <tr>
+            <td>errorIcon</td>
+            <td>No</td>
+            <td>Error icon. Displayed with error messages or information</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Property name</th>
+            <th>Optional</th>
+            <th>Default Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>chatBubbleIconHeight</td>
+            <td>Yes</td>
+            <td><code>'42px'</code></td>
+            <td>Height of loading chat bubble icon</td>
+        </tr>
+        <tr>
+            <td>chatBubbleIconWidth</td>
+            <td>Yes</td>
+            <td><code>'56px'</code></td>
+            <td>Width of loading chat bubble icon</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="299" data-line-end="300">Here’s an example of providing custom icons:</p>
+<pre><code class="has-line-data" data-line-start="301" data-line-end="307" class="language-js"><span class="hljs-keyword">const</span> chatSettings = {
+    ...,
+    clearMessageIcon: <span class="hljs-string">'https://cdn4.iconfinder.com/data/icons/kids-2/128/kids_kid_boy-32.png'</span>,
+    micIcon: <span class="hljs-string">'&lt;svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"&gt;&lt;path d="M0 0h24v24H0z" fill="none" opacity=".1"/&gt;&lt;path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h4v1h-7v2h6c1.66 0 3-1.34 3-3V10c0-4.97-4.03-9-9-9z"/&gt;&lt;/svg&gt;'</span>
+};
+</code></pre>
+<h3 class="code-line" data-line-start=308 data-line-end=309><a id="Custom_Colors_308"></a>Custom Colors</h3>
+<p class="has-line-data" data-line-start="309" data-line-end="310">Following colors can be modified to provide a custom
+    look for the widget. The color provided must be a hexadecimal color. If a color is not provided, the default is
+    used.</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>key</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>branding</td>
+            <td>The primary color for branding the widget. The color is used as the header background, and as hover
+                color on footer buttons.</td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>The text color of messages in chat widget. Gets overridden if component specific setting is applied.
+            </td>
+        </tr>
+        <tr>
+            <td>textLight</td>
+            <td>The text color of secondary text in messages, e.g. card descriptions in chat widget</td>
+        </tr>
+        <tr>
+            <td>headerBackground</td>
+            <td>The background color of chat widget’s header</td>
+        </tr>
+        <tr>
+            <td>headerButtonFill</td>
+            <td>The SVG fill color of buttons in chat header</td>
+        </tr>
+        <tr>
+            <td>headerText</td>
+            <td>The color of title in chat header</td>
+        </tr>
+        <tr>
+            <td>conversationBackground</td>
+            <td>The background of chat widget’s conversation pane. It accepts all values supported by
+                <code>background</code> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background">CSS
+                    property</a>, so it can be used to set image backgrounds, gradients etc. as well.</td>
+        </tr>
+        <tr>
+            <td>botMessageBackground</td>
+            <td>The skill message background color</td>
+        </tr>
+        <tr>
+            <td>botText</td>
+            <td>The skill text color. Overrides the <code>text</code> color if passed.</td>
+        </tr>
+        <tr>
+            <td>userMessageBackground</td>
+            <td>The user message background color</td>
+        </tr>
+        <tr>
+            <td>userText</td>
+            <td>The user text color. Overrides the <code>text</code> color if passed.</td>
+        </tr>
+        <tr>
+            <td>actionsBackground</td>
+            <td>The action button background color</td>
+        </tr>
+        <tr>
+            <td>actionsBackgroundHover</td>
+            <td>The action button background color on hover</td>
+        </tr>
+        <tr>
+            <td>actionsBackgroundFocus</td>
+            <td>The action button background color on focus</td>
+        </tr>
+        <tr>
+            <td>actionsBorder</td>
+            <td>The action button border color</td>
+        </tr>
+        <tr>
+            <td>actionsText</td>
+            <td>The action button text color</td>
+        </tr>
+        <tr>
+            <td>actionsTextHover</td>
+            <td>The action button text color on hover</td>
+        </tr>
+        <tr>
+            <td>actionsTextFocus</td>
+            <td>The action button text color on focus</td>
+        </tr>
+        <tr>
+            <td>globalActionsBackground</td>
+            <td>The global action button background color</td>
+        </tr>
+        <tr>
+            <td>globalActionsBackgroundHover</td>
+            <td>The global action button background color on hover</td>
+        </tr>
+        <tr>
+            <td>globalActionsBackgroundFocus</td>
+            <td>The global action button background color on focus</td>
+        </tr>
+        <tr>
+            <td>globalActionsBorder</td>
+            <td>The global action button border color</td>
+        </tr>
+        <tr>
+            <td>globalActionsText</td>
+            <td>The global action button text color</td>
+        </tr>
+        <tr>
+            <td>globalActionsTextHover</td>
+            <td>The global action button text color on hover</td>
+        </tr>
+        <tr>
+            <td>globalActionsTextFocus</td>
+            <td>The global action button text color on focus</td>
+        </tr>
+        <tr>
+            <td>cardBackground</td>
+            <td>The card message’s background color</td>
+        </tr>
+        <tr>
+            <td>cardNavButton</td>
+            <td>The card navigation button background color</td>
+        </tr>
+        <tr>
+            <td>cardNavButtonHover</td>
+            <td>The card navigation button background color on hover</td>
+        </tr>
+        <tr>
+            <td>cardNavButtonFocus</td>
+            <td>The card navigation button background color on focus</td>
+        </tr>
+        <tr>
+            <td>links</td>
+            <td>The color of links embedded in messages</td>
+        </tr>
+        <tr>
+            <td>typingIndicator</td>
+            <td>The background fill color of typing indicator</td>
+        </tr>
+        <tr>
+            <td>footerBackground</td>
+            <td>The background color of chat widget’s footer</td>
+        </tr>
+        <tr>
+            <td>footerButtonFill</td>
+            <td>The SVG fill color of buttons in chat footer</td>
+        </tr>
+        <tr>
+            <td>inputBackground</td>
+            <td>The background color of message input field</td>
+        </tr>
+        <tr>
+            <td>inputText</td>
+            <td>The text color in message input field. Override <code>text</code> if passed.</td>
+        </tr>
+        <tr>
+            <td>notificationBadgeBackground</td>
+            <td>The background color of message notification badge</td>
+        </tr>
+        <tr>
+            <td>notificationBadgeText</td>
+            <td>The text color of message count in notification badge</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="351" data-line-end="352">Here’s an example of providing custom color.</p>
+<pre><code class="has-line-data" data-line-start="353" data-line-end="358" class="language-json">"colors": {
+    "branding": "#e00",
+    "text": "#545454"
+}
+</code></pre>
+<p class="has-line-data" data-line-start="358" data-line-end="359">The branding and text color will be modified in above
+    example. Default color is used for secondary text color.</p>
+<h3 class="code-line" data-line-start=360 data-line-end=361><a id="Custom_Text_360"></a>Custom Text</h3>
+<p class="has-line-data" data-line-start="361" data-line-end="362">The following strings can be customized to provide
+    localized text. The strings must be provided under a valid <a
+        href="https://www.science.co.il/language/Locale-codes.php">language string</a> e.g. ‘en-us’, ‘es’, ‘fr’,
+    ‘zh-cn’.</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>key</th>
+            <th>Default Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>attachmentAudioFallback</td>
+            <td><code>Your browser does not support embedded audio. However you can {0}download it{/0}.</code></td>
+            <td>The fallback message that is displayed in place of an audio attachment if the audio can not be rendered
+                by the client. The text between {0} and {/0} is set to a link to download the file.</td>
+        </tr>
+        <tr>
+            <td>attachmentVideoFallback</td>
+            <td><code>Your browser does not support embedded video. However you can {0}download it{/0}.</code></td>
+            <td>The fallback message that is displayed in place of an video attachment if the video can not be rendered
+                by the client. The text between {0} and {/0} is set to a link to download the file.</td>
+        </tr>
+        <tr>
+            <td>audioResponseOff</td>
+            <td><code>Turn audio response on</code></td>
+            <td>Tooltip that appears when hovering over audio utterance on button in header.</td>
+        </tr>
+        <tr>
+            <td>audioResponseOn</td>
+            <td><code>Turn audio response off</code></td>
+            <td>Tooltip that appears when hovering over audio utterance off button in header.</td>
+        </tr>
+        <tr>
+            <td>card</td>
+            <td><code>Card</code></td>
+            <td>CRC Card identifier.</td>
+        </tr>
+        <tr>
+            <td>cardImagePlaceholder</td>
+            <td><code>Card image</code></td>
+            <td>Text placeholder that is displayed while card image is fetched and loaded.</td>
+        </tr>
+        <tr>
+            <td>cardNavNext</td>
+            <td><code>Next card</code></td>
+            <td>Card navigation button label that displays next card in horizontal layout.</td>
+        </tr>
+        <tr>
+            <td>cardNavPrevious</td>
+            <td><code>Previous card</code></td>
+            <td>Card navigation button label that displays previous card in horizontal layout.</td>
+        </tr>
+        <tr>
+            <td>chatTitle</td>
+            <td><code>Chat</code></td>
+            <td>Title of the chat widget that is displayed on the header.</td>
+        </tr>
+        <tr>
+            <td>chatSubtitle</td>
+            <td></td>
+            <td>Subtitle of the chat widget that is displayed on the header below the title. If
+                <code>showConnectionStatus</code> is set true, and the subtitle is set as well, the subtitle is
+                displayed instead of the connection status.</td>
+        </tr>
+        <tr>
+            <td>clear</td>
+            <td><code>Clear conversation</code></td>
+            <td>Tooltip that appears when hovering over clear messages button in header.</td>
+        </tr>
+        <tr>
+            <td>close</td>
+            <td><code>Close widget</code></td>
+            <td>Tooltip that appears when hovering over close widget button in header.</td>
+        </tr>
+        <tr>
+            <td>closing</td>
+            <td><code>Closing</code></td>
+            <td>Status text when connection between chat widget and server is closing.</td>
+        </tr>
+        <tr>
+            <td>connected</td>
+            <td><code>Connected</code></td>
+            <td>Status text when connection between chat widget and server is established.</td>
+        </tr>
+        <tr>
+            <td>connecting</td>
+            <td><code>Connecting</code></td>
+            <td>Status text when connection between chat widget and server is connecting.</td>
+        </tr>
+        <tr>
+            <td>disconnected</td>
+            <td><code>Disconnected</code></td>
+            <td>Status text when connection between chat widget and server is closed.</td>
+        </tr>
+        <tr>
+            <td>errorSpeechUnsupportedLocale</td>
+            <td><code>The set speech locale is not supported. Can not start recording.</code></td>
+            <td>The error message that is displayed when an unsupported speech locale is configured for voice
+                recognition and a recording is attempted.</td>
+        </tr>
+        <tr>
+            <td>inputPlaceholder</td>
+            <td><code>Type a message</code></td>
+            <td>Placeholder text that appears in user input field.</td>
+        </tr>
+        <tr>
+            <td>noSpeechTimeout</td>
+            <td><code>Could not detect the voice, no message sent.</code></td>
+            <td>Status text that is displayed when server is unable to recognize the voice.</td>
+        </tr>
+        <tr>
+            <td>openMap</td>
+            <td><code>Open Map</code></td>
+            <td>Label of the action button to open a location map.</td>
+        </tr>
+        <tr>
+            <td>previousChats</td>
+            <td><code>Previous conversations</code></td>
+            <td>Status text that is displayed at the end of older messages.</td>
+        </tr>
+        <tr>
+            <td>requestLocation</td>
+            <td><code>Requesting location</code></td>
+            <td>Text that is displayed while user location is requested on browser.</td>
+        </tr>
+        <tr>
+            <td>requestLocationDeniedPermission</td>
+            <td><code>Location permission denied. Please allow access to share your location, or else type in your location.</code>
+            </td>
+            <td>The error message that is displayed when permission to access location is denied.</td>
+        </tr>
+        <tr>
+            <td>requestLocationDeniedTimeout</td>
+            <td><code>Taking too long to get your current location. Please try again, or else type in your location.</code>
+            </td>
+            <td>The error message that is displayed when location request is not resolved due to a timeout.</td>
+        </tr>
+        <tr>
+            <td>requestLocationDeniedUnavailable</td>
+            <td><code>Your current location is unavailable. Please try again, or else type in your location.</code></td>
+            <td>The error message that is displayed when location request is denied due to unavailability of current
+                location in client’s device.</td>
+        </tr>
+        <tr>
+            <td>retryMessage</td>
+            <td><code>Try again</code></td>
+            <td>Text that is displayed when user message is not sent to server.</td>
+        </tr>
+        <tr>
+            <td>send</td>
+            <td><code>Send message</code></td>
+            <td>Tooltip that appears when hovering over send button in footer.</td>
+        </tr>
+        <tr>
+            <td>shareAudio</td>
+            <td><code>Share Audio</code></td>
+            <td>Menu item text for sharing audio file in share popup.</td>
+        </tr>
+        <tr>
+            <td>shareFile</td>
+            <td><code>Share File</code></td>
+            <td>Menu item text for sharing generic file in share popup.</td>
+        </tr>
+        <tr>
+            <td>shareLocation</td>
+            <td><code>Share Location</code></td>
+            <td>Menu item text for sharing location in share popup.</td>
+        </tr>
+        <tr>
+            <td>shareVisual</td>
+            <td><code>Share Image/Video</code></td>
+            <td>Menu item text for sharing image or video file in share popup.</td>
+        </tr>
+        <tr>
+            <td>shareFailureMessage</td>
+            <td><code>Sorry, sharing is not available on this device.</code></td>
+            <td>Error message that is shown when user clicks on a share action button and the share API is not supported
+                by the device.</td>
+        </tr>
+        <tr>
+            <td>skillMessage</td>
+            <td><code>Skill says</code></td>
+            <td>Skill message indicator for screen readers. It is spoken by the screen readers before the skill
+                responses.</td>
+        </tr>
+        <tr>
+            <td>speak</td>
+            <td><code>Speak a message</code></td>
+            <td>Tooltip that appears when hovering over speak button in footer.</td>
+        </tr>
+        <tr>
+            <td>upload</td>
+            <td><code>Upload Document</code></td>
+            <td>Tooltip that appears when hovering over upload button in footer.</td>
+        </tr>
+        <tr>
+            <td>uploadFailed</td>
+            <td><code>Upload Failed.</code></td>
+            <td>Error text for upload failure.</td>
+        </tr>
+        <tr>
+            <td>uploadFileSizeLimitExceeded</td>
+            <td><code>Upload Failed. File size must not be more than 25MB.</code></td>
+            <td>Error text displayed when upload file size is too heavy.</td>
+        </tr>
+        <tr>
+            <td>uploadUnsupportedFileType</td>
+            <td><code>Upload Failed. Unsupported file type.</code></td>
+            <td>Error text displayed when unsupported file type upload is attempted.</td>
+        </tr>
+        <tr>
+            <td>userMessage</td>
+            <td><code>I say</code></td>
+            <td>User message indicator for screen readers. It is spoken by the screen readers before the user messages.
+            </td>
+        </tr>
+        <tr>
+            <td>utteranceGeneric</td>
+            <td><code>Message from skill.</code></td>
+            <td>Fallback description of a response message for utterance that was not parsed by the SDK.</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="406" data-line-end="407">Here’s an example of providing custom text in a few
+    locales.</p>
+<pre><code class="has-line-data" data-line-start="408" data-line-end="423" class="language-json">"i18n": {
+    "fr": {
+        "chatTitle": "Soutien"
+    },
+    "en": {
+        "chatTitle": "Support"
+    },
+    "es": {
+        "chatTitle": "Apoyo"
+    },
+    "zh-cn": {
+        "chatTitle": "支持"
+    }
+}
+</code></pre>
+<p class="has-line-data" data-line-start="423" data-line-end="424">If custom strings are provided for any locale other
+    than ‘en’, all keys must be specified for that locale, otherwise ‘en’ translations are displayed for the missing
+    values.</p>
+<p class="has-line-data" data-line-start="425" data-line-end="426">The settings can be configured as provided in the
+    example below:</p>
+<pre><code class="has-line-data" data-line-start="427" data-line-end="460" class="language-js">&lt;script&gt;
+var chatSettings = {
+    URI: '&lt;Chat server URI&gt;',
+    channelId: '&lt;Channel ID&gt;',
+    userId: '&lt;User ID&gt;',
+    font: '14px "Helvetica Neue", Helvetica, Arial, sans-serif',
+    locale: 'en',
+    enableClearMessage: true,
+    botButtonIcon : 'style/Robot.png',
+    botIcon: 'style/Robot.png',
+    personIcon: 'style/userIcon.png'
+};
+function initSdk(name) {
+    // Default name is Bots
+    if (!name) {
+        name = 'Bots';
+    }
+    setTimeout(() =&gt; {
+        const Bots = new WebSDK(chatSettings); // Initiate library with configuration
+
+        // Add ready listener before calling connect()
+        // It is preferable to add other listeners before calling connect() too
+        Bots.on('ready', () =&gt; {
+            console.log('The widget is ready');
+        });
+
+        Bots.connect(); // Connect to server
+        window[name] = Bots;
+    });
+}
+&lt;/script&gt;
+&lt;script src="&lt;WebSDK URL&gt;" onload="initSdk('&lt;WebSDK namespace&gt;')"&gt;
+</code></pre>
+<h3 class="code-line" data-line-start=461 data-line-end=462><a id="Customizing_CSS_Classes_461"></a>Customizing CSS
+    Classes</h3>
+<p class="has-line-data" data-line-start="463" data-line-end="464">To further customize the look of the chat widget, its
+    CSS classes can be overridden with custom style rules. Some main classes are as follows:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>class</th>
+            <th>Component</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>oda-chat-wrapper</td>
+            <td>Wrapper for entire chat widget</td>
+        </tr>
+        <tr>
+            <td>oda-chat-button</td>
+            <td>Collapsed chat widget button</td>
+        </tr>
+        <tr>
+            <td>oda-chat-notification-badge</td>
+            <td>Unseen message notification badge</td>
+        </tr>
+        <tr>
+            <td>oda-chat-widget</td>
+            <td>Expanded chat widget; wraps the widget header, conversation, and footer</td>
+        </tr>
+        <tr>
+            <td>oda-chat-header</td>
+            <td>Chat widget header</td>
+        </tr>
+        <tr>
+            <td>oda-chat-logo</td>
+            <td>Logo on the widget header</td>
+        </tr>
+        <tr>
+            <td>oda-chat-title</td>
+            <td>Title on the widget header</td>
+        </tr>
+        <tr>
+            <td>oda-chat-connection-status</td>
+            <td>Connection status. Each connection value has its own class as well - oda-chat-connected,
+                oda-chat-disconnected etc.</td>
+        </tr>
+        <tr>
+            <td>oda-chat-connected</td>
+            <td>Applied as a sibling to connection-status when the widget is connected to server</td>
+        </tr>
+        <tr>
+            <td>oda-chat-connecting</td>
+            <td>Applied as a sibling to connection-status when the widget is connecting to server</td>
+        </tr>
+        <tr>
+            <td>oda-chat-disconnected</td>
+            <td>Applied as a sibling to connection-status when the widget is disconnected from server</td>
+        </tr>
+        <tr>
+            <td>oda-chat-closing</td>
+            <td>Applied as a sibling to connection-status when the widget is disconnecting from server</td>
+        </tr>
+        <tr>
+            <td>oda-chat-header-button</td>
+            <td>Common class for all header buttons</td>
+        </tr>
+        <tr>
+            <td>oda-chat-button-clear</td>
+            <td>Clear messages button</td>
+        </tr>
+        <tr>
+            <td>oda-chat-button-narration</td>
+            <td>Skill audio response toggle button</td>
+        </tr>
+        <tr>
+            <td>oda-chat-button-close</td>
+            <td>Close widget button</td>
+        </tr>
+        <tr>
+            <td>oda-chat-conversation</td>
+            <td>Container for the conversation</td>
+        </tr>
+        <tr>
+            <td>oda-chat-message</td>
+            <td>Common wrapper class for all chat messages</td>
+        </tr>
+        <tr>
+            <td>oda-chat-left</td>
+            <td>Skill message wrapper</td>
+        </tr>
+        <tr>
+            <td>oda-chat-right</td>
+            <td>User message wrapper</td>
+        </tr>
+        <tr>
+            <td>oda-chat-icon-wrapper</td>
+            <td>Skill/person icon wrapper displayed alongside message</td>
+        </tr>
+        <tr>
+            <td>oda-chat-message-icon</td>
+            <td>Skill/person icon image displayed alongside message</td>
+        </tr>
+        <tr>
+            <td>oda-chat-message-bubble</td>
+            <td>Message bubble</td>
+        </tr>
+        <tr>
+            <td>oda-chat-message-actions</td>
+            <td>Action buttons wrapper</td>
+        </tr>
+        <tr>
+            <td>oda-chat-message-global-actions</td>
+            <td>Global action buttons wrapper</td>
+        </tr>
+        <tr>
+            <td>oda-chat-message-action-postback</td>
+            <td>Postback action button</td>
+        </tr>
+        <tr>
+            <td>oda-chat-message-action-location</td>
+            <td>Location request action button</td>
+        </tr>
+        <tr>
+            <td>oda-chat-card</td>
+            <td>Card message</td>
+        </tr>
+        <tr>
+            <td>oda-chat-footer</td>
+            <td>Chat widget footer</td>
+        </tr>
+        <tr>
+            <td>oda-chat-footer-button</td>
+            <td>Common class for all footer buttons</td>
+        </tr>
+        <tr>
+            <td>oda-chat-button-upload</td>
+            <td>Upload file button</td>
+        </tr>
+        <tr>
+            <td>oda-chat-button-send</td>
+            <td>Send message button</td>
+        </tr>
+        <tr>
+            <td>oda-chat-user-input</td>
+            <td>User input textarea</td>
+        </tr>
+    </tbody>
+</table>
+<h2 class="code-line" data-line-start=501 data-line-end=502><a id="Enums_501"></a>Enums</h2>
+<p class="has-line-data" data-line-start="503" data-line-end="504">The <code>WebSDK</code> object exposes various enums
+    for the settings that support specific values. Once the library has been loaded, these enum values can be used to
+    configure or update the SDK. The enums are:</p>
+<h3 class="code-line" data-line-start=505 data-line-end=506><a id="WebSDKEVENT_505"></a>WebSDK.EVENT</h3>
+<p class="has-line-data" data-line-start="507" data-line-end="508">This enum provides the event values that can be
+    subscribed for using <code>Bots.on</code> method. The enum values are:</p>
+<h4 class="code-line" data-line-start=509 data-line-end=510><a
+        id="CLICK_AUDIO_RESPONSE_TOGGLE__clickaudiotoggle_509"></a>CLICK_AUDIO_RESPONSE_TOGGLE - ‘click:audiotoggle’
+</h4>
+<h4 class="code-line" data-line-start=511 data-line-end=512><a id="CLICK_ERASE__clickerase_511"></a>CLICK_ERASE -
+    ‘click:erase’</h4>
+<h4 class="code-line" data-line-start=513 data-line-end=514><a
+        id="CLICK_VOICE_TOGGLE__clickvoicetoggle_513"></a>CLICK_VOICE_TOGGLE - ‘click:voicetoggle’</h4>
+<h4 class="code-line" data-line-start=515 data-line-end=516><a id="DESTROY__destroy_515"></a>DESTROY - ‘destroy’</h4>
+<h4 class="code-line" data-line-start=517 data-line-end=518><a id="MESSAGE__message_517"></a>MESSAGE - ‘message’</h4>
+<h4 class="code-line" data-line-start=519 data-line-end=520><a
+        id="MESSAGE_RECEIVED__messagereceived_519"></a>MESSAGE_RECEIVED - ‘message:received’</h4>
+<h4 class="code-line" data-line-start=521 data-line-end=522><a id="MESSAGE_SENT__messagesent_521"></a>MESSAGE_SENT -
+    ‘message:sent’</h4>
+<h4 class="code-line" data-line-start=523 data-line-end=524><a id="NETWORK__networkstatuschange_523"></a>NETWORK -
+    ‘networkstatuschange’</h4>
+<h4 class="code-line" data-line-start=525 data-line-end=526><a id="READY__ready_525"></a>READY - ‘ready’</h4>
+<h4 class="code-line" data-line-start=527 data-line-end=528><a id="UNREAD__unreadCount_527"></a>UNREAD - ‘unreadCount’
+</h4>
+<h4 class="code-line" data-line-start=529 data-line-end=530><a id="WIDGET_CLOSED__widgetclosed_529"></a>WIDGET_CLOSED -
+    ‘widget:closed’</h4>
+<h4 class="code-line" data-line-start=531 data-line-end=532><a id="WIDGET_OPENED__widgetopened_531"></a>WIDGET_OPENED -
+    ‘widget:opened’</h4>
+<p class="has-line-data" data-line-start="533" data-line-end="534">The enum values can be passed to add a listener to
+    the corresponding event, e.g. Bots.on(WebSDK.EVENT.MESSAGE_SENT, () =&gt; {}) to listen for sent messages.</p>
+<h3 class="code-line" data-line-start=535 data-line-end=536><a id="WebSDKSPEECH_LOCALE_535"></a>WebSDK.SPEECH_LOCALE
+</h3>
+<p class="has-line-data" data-line-start="537" data-line-end="538">This enum provides the locales that are supported by
+    the voice recognition service. The enum values are:</p>
+<h4 class="code-line" data-line-start=539 data-line-end=540><a id="EN_US__enus__English_539"></a>EN_US - ‘en-us’ -
+    English</h4>
+<h4 class="code-line" data-line-start=541 data-line-end=542><a id="ES_ES__eses__Spanish_541"></a>ES_ES - ‘es-es’ -
+    Spanish</h4>
+<h4 class="code-line" data-line-start=543 data-line-end=544><a id="FR_FR__frfr__French_543"></a>FR_FR - ‘fr-fr’ - French
+</h4>
+<p class="has-line-data" data-line-start="545" data-line-end="546">The enum values can be passed in
+    <code>speechLocale</code> setting, or <code>setSpeechLocale()</code> API.</p>
+<h3 class="code-line" data-line-start=547 data-line-end=548><a id="WebSDKTHEME_547"></a>WebSDK.THEME</h3>
+<p class="has-line-data" data-line-start="549" data-line-end="550">This enum provides the themes that can be applied to
+    the chat widget. The values are:</p>
+<h4 class="code-line" data-line-start=551 data-line-end=552><a id="DEFAULT__default_551"></a>DEFAULT - ‘default’</h4>
+<p class="has-line-data" data-line-start="552" data-line-end="553">The default theme, provides contrast ratio between
+    background layout and foreground text colors to meet WCAG 2.1 AAA requirements.</p>
+<h4 class="code-line" data-line-start=554 data-line-end=555><a id="REDWOOD_DARK__redwooddark_554"></a>REDWOOD_DARK -
+    ‘redwood-dark’</h4>
+<p class="has-line-data" data-line-start="555" data-line-end="556">Redwood dark theme, provides contrast ratio between
+    background layout and foreground text colors to meet WCAG 2.1 AA requirements.</p>
+<h4 class="code-line" data-line-start=557 data-line-end=558><a id="CLASSIC__classic_557"></a>CLASSIC - ‘classic’</h4>
+<p class="has-line-data" data-line-start="558" data-line-end="559">The classic theme that was being used in the widget
+    earlier. This theme does not meet the minimum color contrast between the background layout and foreground text
+    colors as required by WCAG 2.1.</p>
+<h2 class="code-line" data-line-start=561 data-line-end=562><a id="Methods_561"></a>Methods</h2>
+<p class="has-line-data" data-line-start="563" data-line-end="564">The name that’s passed in the <code>initSdk</code>
+    parameter (WebSDK Namespace) will be used to invoke the SDK’s public APIs. For example, if the name is set as
+    <code>'Bots'</code>, the APIs can be invoked with <code>Bots.&lt;API&gt;()</code>.</p>
+<h3 class="code-line" data-line-start=566 data-line-end=567><a id="openChat_566"></a>openChat()</h3>
+<p class="has-line-data" data-line-start="568" data-line-end="569">Opens the chat widget popup.</p>
+<pre><code class="has-line-data" data-line-start="571" data-line-end="573" class="language-js">Bots.openChat();
+</code></pre>
+<h3 class="code-line" data-line-start=574 data-line-end=575><a id="closeChat_574"></a>closeChat()</h3>
+<p class="has-line-data" data-line-start="576" data-line-end="577">Collapses the chat widget and displays the chat icon.
+</p>
+<pre><code class="has-line-data" data-line-start="579" data-line-end="581" class="language-js">Bots.closeChat();
+</code></pre>
+<h3 class="code-line" data-line-start=582 data-line-end=583><a id="isChatOpened_582"></a>isChatOpened()</h3>
+<p class="has-line-data" data-line-start="584" data-line-end="585">Returns true if the widget is open, otherwise false.
+</p>
+<pre><code class="has-line-data" data-line-start="587" data-line-end="589" class="language-js">Bots.isChatOpened();
+</code></pre>
+<h3 class="code-line" data-line-start=590 data-line-end=591><a id="destroy_590"></a>destroy()</h3>
+<p class="has-line-data" data-line-start="592" data-line-end="593">Destroys the widget, making the UI element disappear.
+</p>
+<pre><code class="has-line-data" data-line-start="595" data-line-end="597" class="language-js">Bots.destroy();
+</code></pre>
+<h3 class="code-line" data-line-start=598 data-line-end=599><a id="connect_598"></a>connect()</h3>
+<p class="has-line-data" data-line-start="600" data-line-end="601">Connects to current chat server.</p>
+<pre><code class="has-line-data" data-line-start="603" data-line-end="605" class="language-js">Bots.connect()
+</code></pre>
+<p class="has-line-data" data-line-start="606" data-line-end="607">The API returns a promise which can be used to
+    execute code after connection is complete or closed.</p>
+<pre><code class="has-line-data" data-line-start="609" data-line-end="619" class="language-js">Bots.connect()
+    .then(
+        <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-comment">// Successful connection</span>
+        },
+        <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+            <span class="hljs-comment">// Something went wrong during connection</span>
+        }
+    )
+</code></pre>
+<h3 class="code-line" data-line-start=620 data-line-end=621><a id="connectconfig_620"></a>connect(config)</h3>
+<p class="has-line-data" data-line-start="622" data-line-end="623">Connects to current chat server with passed
+    parameters, userId is optional.</p>
+<pre><code class="has-line-data" data-line-start="625" data-line-end="629" class="language-js">Bots.connect({
+    channelId: <span class="hljs-string">'&lt;channelId&gt;'</span>,
+    userId: <span class="hljs-string">'&lt;userId&gt;'</span>})
+</code></pre>
+<p class="has-line-data" data-line-start="630" data-line-end="631">The API returns a promise which can be used to
+    execute code after connection is complete or closed.</p>
+<pre><code class="has-line-data" data-line-start="633" data-line-end="645" class="language-js">Bots.connect({
+    channelId: <span class="hljs-string">'&lt;channelId&gt;'</span>,
+    userId: <span class="hljs-string">'&lt;userId&gt;'</span>})
+    .then(
+        <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-comment">// Successful connection</span>
+        },
+        <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+            <span class="hljs-comment">// Something went wrong during connection</span>
+        }
+    )
+</code></pre>
+<h3 class="code-line" data-line-start=647 data-line-end=648><a id="disconnect_647"></a>disconnect()</h3>
+<p class="has-line-data" data-line-start="649" data-line-end="650">Closes currently active connection to the chat
+    server.</p>
+<pre><code class="has-line-data" data-line-start="652" data-line-end="654" class="language-js">Bots.disconnect()
+</code></pre>
+<h3 class="code-line" data-line-start=655 data-line-end=656><a id="isConnected_655"></a>isConnected()</h3>
+<p class="has-line-data" data-line-start="657" data-line-end="658">Returns whether the connection to the chat server is
+    currently active.</p>
+<pre><code class="has-line-data" data-line-start="660" data-line-end="662" class="language-js">Bots.isConnected() <span class="hljs-comment">// false</span>
+</code></pre>
+<h3 class="code-line" data-line-start=663 data-line-end=664><a id="sendAttachmentfile_663"></a>sendAttachment(file)</h3>
+<p class="has-line-data" data-line-start="665" data-line-end="666">Uploads file to the server. Returns a Promise that is
+    resolved with the server response for successful uploads, or gets rejected with an error message for unsuccessful
+    uploads.</p>
+<pre><code class="has-line-data" data-line-start="668" data-line-end="676" class="language-js">Bots.sendAttachment(file)
+    .then((result) =&gt; {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'File uploaded successfully.'</span>);
+    })
+    .catch((reason) =&gt; {
+        <span class="hljs-built_in">console</span>.log(reason);
+    });
+</code></pre>
+<h3 class="code-line" data-line-start=677 data-line-end=678><a
+        id="sendMessagemessage_flags_677"></a>sendMessage(message, flags)</h3>
+<p class="has-line-data" data-line-start="679" data-line-end="680">Sends a message on user’s behalf. Returns a Boolean
+    to indicate whether the message was sent.</p>
+<pre><code class="has-line-data" data-line-start="682" data-line-end="689" class="language-js">Bots.sendMessage({
+    type: <span class="hljs-string">'text'</span>,
+    text: <span class="hljs-string">'hello'</span>
+});
+<span class="hljs-comment">// OR</span>
+Bots.sendMessage(<span class="hljs-string">'hello'</span>);
+</code></pre>
+<p class="has-line-data" data-line-start="690" data-line-end="691">The messages can be sent in three formats:</p>
+<ul>
+    <li class="has-line-data" data-line-start="692" data-line-end="693">passing text string</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="694" data-line-end="696" class="language-js">Bots.sendMessage(<span class="hljs-string">'Show my payslip'</span>)
+</code></pre>
+<p class="has-line-data" data-line-start="697" data-line-end="698">You can also pass a location coordinates in a similar
+    fashion:</p>
+<pre><code class="has-line-data" data-line-start="700" data-line-end="702" class="language-js">Bots.sendMessage(<span class="hljs-string">'32.323232, 143.434343'</span>)   <span class="hljs-comment">// Latitude, longitude</span>
+</code></pre>
+<ul>
+    <li class="has-line-data" data-line-start="703" data-line-end="705">passing messagePayload of message</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="706" data-line-end="722" class="language-js">Bots.sendMessage({
+    type: <span class="hljs-string">'text'</span>,
+    text: <span class="hljs-string">'Show menu'</span>
+})
+
+Bots.sendMessage({
+    postback: {
+        variables: {},
+        <span class="hljs-string">"system.botId"</span>: <span class="hljs-string">"5409672A-AB06-4109-8303-318F5EDE91AA"</span>,
+        action: <span class="hljs-string">"pizza"</span>,
+        <span class="hljs-string">"system.state"</span>: <span class="hljs-string">"ShowMenu"</span>
+    },
+    text: <span class="hljs-string">"Order Pizza"</span>,
+    type: <span class="hljs-string">"postback"</span>
+})
+</code></pre>
+<ul>
+    <li class="has-line-data" data-line-start="723" data-line-end="725">passing entire message</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="726" data-line-end="740" class="language-js">Bots.sendMessage({
+    <span class="hljs-string">"messagePayload"</span>: {
+        <span class="hljs-string">"postback"</span>: {
+            <span class="hljs-string">"variables"</span>: {},
+            <span class="hljs-string">"system.botId"</span>: <span class="hljs-string">"5409672A-AB06-4109-8303-318F5EDE91AA"</span>,
+            <span class="hljs-string">"action"</span>: <span class="hljs-string">"pizza"</span>,
+            <span class="hljs-string">"system.state"</span>: <span class="hljs-string">"ShowMenu"</span>
+        },
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"Order Pizza"</span>,
+        <span class="hljs-string">"type"</span>: <span class="hljs-string">"postback"</span>
+    },
+    <span class="hljs-string">"userId"</span>: <span class="hljs-string">"Guest"</span>
+})
+</code></pre>
+<p class="has-line-data" data-line-start="741" data-line-end="742">To keep the message from being displayed in the
+    widget, pass the <code>hidden</code> Boolean flag in the flags object.</p>
+<pre><code class="has-line-data" data-line-start="744" data-line-end="746" class="language-js">Bots.sendMessage(<span class="hljs-string">'What is the menu today?'</span>, { hidden: <span class="hljs-literal">true</span> });
+</code></pre>
+<p class="has-line-data" data-line-start="747" data-line-end="748">The above call will send the message to server
+    without displaying it in the widget.</p>
+<h3 class="code-line" data-line-start=749 data-line-end=750><a
+        id="updateUseruserDetails_749"></a>updateUser(userDetails)</h3>
+<p class="has-line-data" data-line-start="751" data-line-end="752">Updates the user information.</p>
+<pre><code class="has-line-data" data-line-start="754" data-line-end="769" class="language-js">Bots.updateUser({
+    messagePayload: {
+        text: <span class="hljs-string">'give me a pizza'</span>,
+        type: <span class="hljs-string">'text'</span>
+    },
+    profile: {
+        firstName: <span class="hljs-string">'Jane'</span>,
+        lastName: <span class="hljs-string">'Smith'</span>,
+        email: <span class="hljs-string">'<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6a3a6b2b7a2b3b296b3bbb7bfbaf8b5b9bb">[email&#160;protected]</a>'</span>,
+        properties: {
+            justGotUpdated: <span class="hljs-literal">true</span>
+        }
+    }
+});
+</code></pre>
+<p class="has-line-data" data-line-start="770" data-line-end="771">Note: You also can use the
+    <code>initUserProfile</code> property to set profile values. If you use the <code>initUserHiddenMessage</code>
+    property, and the response from the server is expected to have user profile values, then you must use the
+    <code>initUserProfile</code> property instead of setting the values in <code>updateUser()</code>. For later updates
+    to user profile, you can continue using <code>updateUser()</code>.</p>
+<h3 class="code-line" data-line-start=772 data-line-end=773><a id="getSuggestionsquery_772"></a>getSuggestions(query)
+</h3>
+<p class="has-line-data" data-line-start="774" data-line-end="775">If autocomplete feature is enabled
+    (<code>enableAutocomplete: true</code>), this API returns a Promise that resolves to the suggestions for the given
+    query string. If it takes too long (~10s) to fetch the suggestion, the Promise is rejected.</p>
+<pre><code class="has-line-data" data-line-start="777" data-line-end="786" class="language-js">Bots.getSuggestions(<span class="hljs-string">'pizza'</span>)
+    .then((suggestions) =&gt; {
+        <span class="hljs-keyword">const</span> suggestionString = suggestions.toString();
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'The suggestions are: '</span>, suggestionString);
+    })
+    .catch((reason) =&gt; {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Suggestion request failed'</span>, reason);
+    });
+</code></pre>
+<p class="has-line-data" data-line-start="787" data-line-end="788">The API expects a single query string parameter, and
+    returns a Promise. On successful request for suggestions, the Promise is resolved to a string array. On failure, the
+    Promise is rejected with an error message.</p>
+<p class="has-line-data" data-line-start="789" data-line-end="790">If the API is called when the feature is disabled, it
+    returns a rejected Promise.</p>
+<h3 class="code-line" data-line-start=791 data-line-end=792><a
+        id="startVoiceRecordingonSpeechRecognition_onSpeechNetworkChange_791"></a>startVoiceRecording(onSpeechRecognition,
+    onSpeechNetworkChange)</h3>
+<p class="has-line-data" data-line-start="793" data-line-end="797">Starts voice recording if the speech recognition
+    feature is enabled. The API returns a Promise that is resolved when the speech service is able to start recording.
+    In case of an error, the Promise is rejected with an Error object.<br>
+    The API expects two callbacks to be passed as its parameters:<br>
+    <code>onSpeechRecognition</code> function is called on the speech server response. The JSON response is passed as
+    parameter.<br>
+    <code>onSpeechNetworkChange</code> function is called on change in the speech connection. Two parameters are passed
+    - WebSocket status, and <code>closeEvent</code> in case of closed connection.</p>
+<pre><code class="has-line-data" data-line-start="799" data-line-end="814" class="language-js">Bots.startVoiceRecording((data) =&gt; {
+    <span class="hljs-keyword">let</span> recognizedText = <span class="hljs-string">''</span>;
+    <span class="hljs-keyword">if</span> (data &amp;&amp; (data.event === <span class="hljs-string">'finalResult'</span> || data.event === <span class="hljs-string">'partialResult'</span>)) {
+        <span class="hljs-keyword">if</span> (data.nbest &amp;&amp; data.nbest.length &gt; <span class="hljs-number">0</span>) {
+            recognizedText = data.nbest[<span class="hljs-number">0</span>].utterance;
+        }
+    }
+}, (status, error) =&gt; {
+    <span class="hljs-keyword">if</span> (status === WebSocket.OPEN) {
+        <span class="hljs-comment">// Connection established</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (status === WebSocket.CLOSED) {
+        <span class="hljs-comment">// Connection closed</span>
+    }
+})
+</code></pre>
+<h3 class="code-line" data-line-start=815 data-line-end=816><a id="stopVoiceRecording_815"></a>stopVoiceRecording()</h3>
+<p class="has-line-data" data-line-start="817" data-line-end="818">Stops any running voice recording. Throws an error if
+    speech recognition is not enabled.</p>
+<pre><code class="has-line-data" data-line-start="820" data-line-end="822" class="language-js">Bots.stopVoiceRecording()
+</code></pre>
+<h3 class="code-line" data-line-start=823 data-line-end=824><a
+        id="setSpeechLocalelocale_823"></a>setSpeechLocale(locale)</h3>
+<p class="has-line-data" data-line-start="825" data-line-end="827">Sets the locale used for speech connection. The user
+    is expected to speak with the same locale that is set here to the SDK. The locales currently supported are
+    <code>'en-us'</code>, <code>'fr-fr'</code>, and <code>'es-es'</code>. If an unsupported locale is passed, it is not
+    set as the locale for the speech connections.<br>
+    The function returns a Boolean indicating whether the passed locale is supported or not.</p>
+<pre><code class="has-line-data" data-line-start="829" data-line-end="831" class="language-js">Bots.setSpeechLocale(<span class="hljs-string">'fr-fr'</span>);
+</code></pre>
+<h3 class="code-line" data-line-start=832 data-line-end=833><a id="setDelegatedelegate_832"></a>setDelegate(delegate)
+</h3>
+<p class="has-line-data" data-line-start="834" data-line-end="835">The <code>setDelegate</code> method can be used to
+    change or remove delegate callbacks after a conversation has been initialized. If no value is passed, the existing
+    delegates are removed.</p>
+<pre><code class="has-line-data" data-line-start="837" data-line-end="851" class="language-js">Bots.connect().then(() =&gt; {
+    Bots.setDelegate({
+        beforeDisplay(message) {
+            <span class="hljs-keyword">return</span> message;
+        },
+        beforeSend(message) {
+            <span class="hljs-keyword">return</span> message;
+        },
+        beforePostbackSend(postback) {
+            <span class="hljs-keyword">return</span> postback;
+        }
+    })
+});
+</code></pre>
+<h3 class="code-line" data-line-start=852 data-line-end=853><a
+        id="getConversationHistory_852"></a>getConversationHistory()</h3>
+<p class="has-line-data" data-line-start="854" data-line-end="855">Returns information about current conversation for
+    the user. The response is an object containing user ID, messages, and unread message count.</p>
+<pre><code class="has-line-data" data-line-start="857" data-line-end="876" class="language-js">Bots.getConversationHistory()
+
+{
+    <span class="hljs-string">"messages"</span>:[
+        {
+            <span class="hljs-string">"date"</span>:<span class="hljs-string">"2020-01-22T17:06:24.085Z"</span>,
+            <span class="hljs-string">"isRead"</span>:<span class="hljs-literal">true</span>,
+            <span class="hljs-string">"messagePayload"</span>:{
+                <span class="hljs-string">"text"</span>:<span class="hljs-string">"show menu"</span>,
+                <span class="hljs-string">"type"</span>:<span class="hljs-string">"text"</span>
+            },
+            <span class="hljs-string">"userId"</span>:<span class="hljs-string">"user74882436"</span>
+        }
+    ],
+    <span class="hljs-string">"messagesCount"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"unread"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-string">"userId"</span>:<span class="hljs-string">"user74882436"</span>
+}
+</code></pre>
+<h3 class="code-line" data-line-start=877 data-line-end=878><a
+        id="clearConversationHistoryuserId_shouldClearWidget_877"></a>clearConversationHistory(userId,
+    shouldClearWidget)</h3>
+<p class="has-line-data" data-line-start="879" data-line-end="880">This API clears the conversation history for a known
+    user from the browser’s localStorage. The <code>userId</code> must be a string. On passing empty or no userId,
+    current user’s history is removed.</p>
+<p class="has-line-data" data-line-start="881" data-line-end="882">If the passed <code>userId</code> is same as current
+    user’s <code>userId</code>, then you can also pass an optional boolean argument, <code>shouldClearWidget</code>, to
+    configure whether the current chat widget UI should also be cleared on calling this API. By default, the value is
+    <code>true</code>.</p>
+<p class="has-line-data" data-line-start="883" data-line-end="884"><em>Note</em> - This API does not interact with
+    <code>sessionStorage</code> for users other than current user. The <code>sessionStorage</code> is automatically
+    cleared on closing the tab.</p>
+<pre><code class="has-line-data" data-line-start="886" data-line-end="892" class="language-js">Bots.clearConversationHistory(<span class="hljs-string">'Jonathan'</span>);      <span class="hljs-comment">// Removes conversation history of Jonathan</span>
+
+Bots.clearConversationHistory(<span class="hljs-string">'Adriana'</span>);       <span class="hljs-comment">// Removes conversation history of Adriana and clears the widget UI if Adriana is current user</span>
+
+Bots.clearConversationHistory(<span class="hljs-string">''</span>, <span class="hljs-literal">false</span>);       <span class="hljs-comment">// Removes conversation history of current user without clearing the widget UI</span>
+</code></pre>
+<h3 class="code-line" data-line-start=893 data-line-end=894><a
+        id="clearAllConversationsHistoryshouldClearWidget_893"></a>clearAllConversationsHistory(shouldClearWidget)</h3>
+<p class="has-line-data" data-line-start="895" data-line-end="896">This API clears the conversation history for all
+    users from the browser’s localStorage. Like <code>clearConversationHistory</code>, this method can also help in
+    recovering significant portions of localStorage from the user’s browser.</p>
+<p class="has-line-data" data-line-start="897" data-line-end="898">You can also pass an optional boolean argument,
+    <code>shouldClearWidget</code>, to configure whether the current chat widget UI should also be cleared on calling
+    this API. By default, the value is <code>true</code>.</p>
+<p class="has-line-data" data-line-start="899" data-line-end="900"><strong>Warning</strong> - The actions taken by
+    calling this API can not be undone. Once the messages are deleted, they cannot be recovered. Call this method
+    sparingly and only when absolutely needed.</p>
+<p class="has-line-data" data-line-start="901" data-line-end="902"><em>Note</em> - This API does not interact with
+    <code>sessionStorage</code> for users other than current user. The <code>sessionStorage</code> is automatically
+    cleared on closing the tab.</p>
+<pre><code class="has-line-data" data-line-start="904" data-line-end="906" class="language-js">Bots.clearAllConversationsHistory()
+</code></pre>
+<h3 class="code-line" data-line-start=907 data-line-end=908><a
+        id="getUnreadMessagesCount_907"></a>getUnreadMessagesCount()</h3>
+<p class="has-line-data" data-line-start="909" data-line-end="910">Returns the count of the unread messages.</p>
+<pre><code class="has-line-data" data-line-start="912" data-line-end="914" class="language-js">Bots.getUnreadMessagesCount();
+</code></pre>
+<h3 class="code-line" data-line-start=915 data-line-end=916><a id="setAllMessagesAsRead_915"></a>setAllMessagesAsRead()
+</h3>
+<p class="has-line-data" data-line-start="917" data-line-end="918">Marks all messages as have been read/seen by user.
+</p>
+<pre><code class="has-line-data" data-line-start="920" data-line-end="924" class="language-js">Bots.getUnreadMessagesCount(); <span class="hljs-comment">// 2</span>
+Bots.setAllMessagesAsRead();
+Bots.getUnreadMessagesCount(); <span class="hljs-comment">// 0</span>
+</code></pre>
+<h3 class="code-line" data-line-start=925 data-line-end=926><a
+        id="setUserInputMessagetext_925"></a>setUserInputMessage(text)</h3>
+<p class="has-line-data" data-line-start="927" data-line-end="928">Fills user input field with passed message.</p>
+<pre><code class="has-line-data" data-line-start="930" data-line-end="932" class="language-js">Bots.setUserInputMessage(<span class="hljs-string">'Show my agenda for today please.'</span>);
+</code></pre>
+<h3 class="code-line" data-line-start=933 data-line-end=934><a
+        id="setUserInputPlaceholdertext_933"></a>setUserInputPlaceholder(text)</h3>
+<p class="has-line-data" data-line-start="935" data-line-end="936">Updates user input’s placeholder text. It can be
+    utilized to change the placeholder text according to the input expected from the user.</p>
+<pre><code class="has-line-data" data-line-start="938" data-line-end="940" class="language-js">Bots.setUserInputPlaceholder(<span class="hljs-string">'Add your pizza topping'</span>);
+</code></pre>
+<h3 class="code-line" data-line-start=941 data-line-end=942><a
+        id="setChatBubbleIconHeightheight_941"></a>setChatBubbleIconHeight(height)</h3>
+<p class="has-line-data" data-line-start="943" data-line-end="944">Sets the height of loading chat bubble icon. The
+    height must be provided as a string value in one of standard <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a> units.</p>
+<pre><code class="has-line-data" data-line-start="946" data-line-end="948" class="language-js">Bots.setChatBubbleIconHeight(<span class="hljs-string">'18px'</span>);
+</code></pre>
+<h3 class="code-line" data-line-start=949 data-line-end=950><a
+        id="setChatBubbleIconWidthwidth_949"></a>setChatBubbleIconWidth(width)</h3>
+<p class="has-line-data" data-line-start="951" data-line-end="952">Sets the width of loading chat bubble icon. The width
+    must be provided as a string value in one of standard <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a> units.</p>
+<pre><code class="has-line-data" data-line-start="954" data-line-end="956" class="language-js">Bots.setChatBubbleIconWidth(<span class="hljs-string">'24px'</span>);
+</code></pre>
+<h3 class="code-line" data-line-start=957 data-line-end=958><a
+        id="setChatBubbleIconSizewidth_height_957"></a>setChatBubbleIconSize(width, height)</h3>
+<p class="has-line-data" data-line-start="959" data-line-end="960">Sets the size of loading chat bubble icon. The width
+    and height must be provided as string values in one of the standard <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a> units.</p>
+<pre><code class="has-line-data" data-line-start="962" data-line-end="964" class="language-js">Bots.setChatBubbleIconSize(<span class="hljs-string">'24px'</span>, <span class="hljs-string">'18px'</span>);
+</code></pre>
+<h3 class="code-line" data-line-start=965 data-line-end=966><a id="setFontfont_965"></a>setFont(font)</h3>
+<p class="has-line-data" data-line-start="967" data-line-end="968">Sets the font for the chat widget. The syntax of
+    <code>font</code> must follow the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font">standard
+        pattern</a>.</p>
+<pre><code class="has-line-data" data-line-start="970" data-line-end="972" class="language-js">Bots.setFont(<span class="hljs-string">'14px italic large sans-serif'</span>);
+</code></pre>
+<h3 class="code-line" data-line-start=973 data-line-end=974><a id="setFontSizefontSize_973"></a>setFontSize(fontSize)
+</h3>
+<p class="has-line-data" data-line-start="975" data-line-end="976">Sets the font size for the text in chat widget. The
+    syntax of <code>fontSize</code> must follow the standard <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size">permissible values</a>.</p>
+<pre><code class="has-line-data" data-line-start="978" data-line-end="980" class="language-js">Bots.setFontSize(<span class="hljs-string">'16px'</span>);
+</code></pre>
+<h3 class="code-line" data-line-start=981 data-line-end=982><a id="setHeightheight_981"></a>setHeight(height)</h3>
+<p class="has-line-data" data-line-start="983" data-line-end="984">Sets the height of chat widget. The value passed must
+    be in one of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a> units.</p>
+<pre><code class="has-line-data" data-line-start="986" data-line-end="988" class="language-js">Bots.setHeight(<span class="hljs-string">'786px'</span>)
+</code></pre>
+<h3 class="code-line" data-line-start=989 data-line-end=990><a id="setWidthwidth_989"></a>setWidth(width)</h3>
+<p class="has-line-data" data-line-start="991" data-line-end="992">Sets the width of chat widget. The value passed must
+    be in one of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a> units.</p>
+<pre><code class="has-line-data" data-line-start="994" data-line-end="996" class="language-js">Bots.setWidth(<span class="hljs-string">'320px'</span>)
+</code></pre>
+<h3 class="code-line" data-line-start=997 data-line-end=998><a id="setSizewidth_height_997"></a>setSize(width, height)
+</h3>
+<p class="has-line-data" data-line-start="999" data-line-end="1000">Sets the size of chat widget. The values passed must
+    be in one of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a> units.</p>
+<pre><code class="has-line-data" data-line-start="1002" data-line-end="1004" class="language-js">Bots.setSize(<span class="hljs-string">'320px'</span> ,<span class="hljs-string">'786px'</span>,)
+</code></pre>
+<h3 class="code-line" data-line-start=1005 data-line-end=1006><a
+        id="setMessagePaddingpadding_1005"></a>setMessagePadding(padding)</h3>
+<p class="has-line-data" data-line-start="1007" data-line-end="1008">Sets the padding around the message in the chat
+    widget. The syntax of <code>padding</code> must follow standard <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding">permissible values</a>.</p>
+<pre><code class="has-line-data" data-line-start="1010" data-line-end="1019" class="language-js"><span class="hljs-comment">// Apply padding to all four sides</span>
+Bots.setMessagePadding(<span class="hljs-string">'15px'</span>);
+<span class="hljs-comment">// vertical | horizontal</span>
+Bots.setMessagePadding(<span class="hljs-string">'5% 10%'</span>);
+<span class="hljs-comment">// top | horizontal | bottom</span>
+Bots.setMessagePadding(<span class="hljs-string">'15em 20em 20em'</span>);
+<span class="hljs-comment">// top | right | bottom | left</span>
+Bots.setMessagePadding(<span class="hljs-string">'15px 20px 20px 15px'</span>);
+</code></pre>
+<h3 class="code-line" data-line-start=1020 data-line-end=1021><a id="setTextColorcolor_1020"></a>setTextColor(color)
+</h3>
+<p class="has-line-data" data-line-start="1022" data-line-end="1023">Sets the primary text color of messages in chat
+    widget. It does not modify the colors in actions. The value passed must be in standard <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">color</a> format.</p>
+<pre><code class="has-line-data" data-line-start="1025" data-line-end="1027" class="language-js">Bots.setTextColor(<span class="hljs-string">'#33ee00'</span>)
+</code></pre>
+<h3 class="code-line" data-line-start=1028 data-line-end=1029><a
+        id="setTextColorLightcolor_1028"></a>setTextColorLight(color)</h3>
+<p class="has-line-data" data-line-start="1030" data-line-end="1031">Sets the color of secondary messages in chat
+    widget, like descriptions. The value passed must be in standard <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">color</a> format.</p>
+<pre><code class="has-line-data" data-line-start="1033" data-line-end="1035" class="language-js">Bots.setTextColorLight(<span class="hljs-string">'rgb(13, 155, 200)'</span>)
+</code></pre>
+<h2 class="code-line" data-line-start=1037 data-line-end=1038><a id="Events_1037"></a>Events</h2>
+<p class="has-line-data" data-line-start="1039" data-line-end="1040">To bind an event, use
+    <code>Bots.on(&lt;event name&gt;, &lt;handler&gt;)</code>. To unbind events, you can either:</p>
+<ul>
+    <li class="has-line-data" data-line-start="1040" data-line-end="1041">Call
+        <code>Bots.off(&lt;event name&gt;, handler)</code> to remove one specific handler.</li>
+    <li class="has-line-data" data-line-start="1041" data-line-end="1042">Call <code>Bots.off(&lt;event name&gt;)</code>
+        to remove all handlers for an event.</li>
+    <li class="has-line-data" data-line-start="1042" data-line-end="1044">Call <code>Bots.off()</code> to unbind all
+        handlers.</li>
+</ul>
+<p class="has-line-data" data-line-start="1044" data-line-end="1045">It is preferable to add event handlers before
+    calling <code>connect()</code> method, so that they can be registered and triggered appropriately.</p>
+<h3 class="code-line" data-line-start=1046 data-line-end=1047><a id="ready_1046"></a>ready</h3>
+<p class="has-line-data" data-line-start="1048" data-line-end="1049">This event is triggered when init completes
+    successfully. Be sure to bind before calling init.</p>
+<pre><code class="has-line-data" data-line-start="1051" data-line-end="1055" class="language-js">Bots.on(<span class="hljs-string">'ready'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'the init has completed!'</span>);
+});
+</code></pre>
+<p class="has-line-data" data-line-start="1056" data-line-end="1057">Listeners to <code>ready</code> event must be added
+    before calling the <code>connect()</code> method, otherwise the listeners will not be registered in time to be
+    triggered.</p>
+<h3 class="code-line" data-line-start=1058 data-line-end=1059><a id="destroy_1058"></a>destroy</h3>
+<p class="has-line-data" data-line-start="1060" data-line-end="1061">This event is triggered when the widget is
+    destroyed.</p>
+<pre><code class="has-line-data" data-line-start="1062" data-line-end="1067" class="language-js">Bots.on(<span class="hljs-string">'destroy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'the widget is destroyed!'</span>);
+});
+Bots.destroy();
+</code></pre>
+<h3 class="code-line" data-line-start=1068 data-line-end=1069><a id="messagereceived_1068"></a>message:received</h3>
+<p class="has-line-data" data-line-start="1070" data-line-end="1071">This event is triggered when the user receives a
+    message.</p>
+<pre><code class="has-line-data" data-line-start="1072" data-line-end="1076" class="language-js">Bots.on(<span class="hljs-string">'message:received'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'the user received a message'</span>, message);
+});
+</code></pre>
+<h3 class="code-line" data-line-start=1077 data-line-end=1078><a id="messagesent_1077"></a>message:sent</h3>
+<p class="has-line-data" data-line-start="1079" data-line-end="1080">This event is triggered when the user sends a
+    message.</p>
+<pre><code class="has-line-data" data-line-start="1081" data-line-end="1085" class="language-js">Bots.on(<span class="hljs-string">'message:sent'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'the user sent a message'</span>, message);
+});
+</code></pre>
+<h3 class="code-line" data-line-start=1086 data-line-end=1087><a id="message_1086"></a>message</h3>
+<p class="has-line-data" data-line-start="1088" data-line-end="1089">This event is triggered when a message was added to
+    the conversation.</p>
+<pre><code class="has-line-data" data-line-start="1090" data-line-end="1094" class="language-js">Bots.on(<span class="hljs-string">'message'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'a message was added to the conversation'</span>, message);
+});
+</code></pre>
+<h3 class="code-line" data-line-start=1095 data-line-end=1096><a id="networkstatuschange_1095"></a>networkstatuschange
+</h3>
+<p class="has-line-data" data-line-start="1097" data-line-end="1098">This event is triggered whenever the network status
+    of the connection to the server changes. The callback receives a status number parameter, which corresponds to <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Constants">WebSocket network status
+        constants</a>.</p>
+<pre><code class="has-line-data" data-line-start="1099" data-line-end="1117" class="language-js">Bots.on(<span class="hljs-string">'networkstatuschange'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">status</span>) </span>{
+    <span class="hljs-keyword">switch</span> (status) {
+        <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+            status = <span class="hljs-string">'Connecting'</span>;
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            status = <span class="hljs-string">'Open'</span>;
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+            status = <span class="hljs-string">'Closing'</span>;
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+            status = <span class="hljs-string">'Closed'</span>;
+            <span class="hljs-keyword">break</span>;
+    }
+    <span class="hljs-built_in">console</span>.log(status);
+});
+</code></pre>
+<h3 class="code-line" data-line-start=1118 data-line-end=1119><a id="unreadCount_1118"></a>unreadCount</h3>
+<p class="has-line-data" data-line-start="1120" data-line-end="1121">This event is triggered when the number of unread
+    messages changes.</p>
+<pre><code class="has-line-data" data-line-start="1122" data-line-end="1126" class="language-js">Bots.on(<span class="hljs-string">'unreadCount'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">unreadCount</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'the number of unread messages was updated'</span>, unreadCount);
+});
+</code></pre>
+<h3 class="code-line" data-line-start=1127 data-line-end=1128><a id="widgetopened_1127"></a>widget:opened</h3>
+<p class="has-line-data" data-line-start="1129" data-line-end="1130">This event is triggered when the widget is opened.
+</p>
+<pre><code class="has-line-data" data-line-start="1131" data-line-end="1135" class="language-js">Bots.on(<span class="hljs-string">'widget:opened'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Widget is opened!'</span>);
+});
+</code></pre>
+<h3 class="code-line" data-line-start=1136 data-line-end=1137><a id="widgetclosed_1136"></a>widget:closed</h3>
+<p class="has-line-data" data-line-start="1138" data-line-end="1139">This event is triggered when the widget is closed.
+</p>
+<pre><code class="has-line-data" data-line-start="1140" data-line-end="1144" class="language-js">Bots.on(<span class="hljs-string">'widget:closed'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Widget is closed!'</span>);
+});
+</code></pre>
+<h3 class="code-line" data-line-start=1145 data-line-end=1146><a id="clickaudiotoggle_1145"></a>click:audiotoggle</h3>
+<p class="has-line-data" data-line-start="1147" data-line-end="1148">This event is triggered when the audio utterance of
+    response is toggled. The subscribers receive the Boolean status - <code>true</code> if the audio response is turned
+    on, <code>false</code> if it is turned off.</p>
+<pre><code class="has-line-data" data-line-start="1149" data-line-end="1157" class="language-js">Bots.on(<span class="hljs-string">'click:audiotoggle'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">status</span>) </span>{
+    <span class="hljs-keyword">if</span> (status === <span class="hljs-literal">true</span>) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Audio response is turned on.'</span>);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Audio response is turned off.'</span>);
+    }
+})
+</code></pre>
+<h3 class="code-line" data-line-start=1158 data-line-end=1159><a id="clickerase_1158"></a>click:erase</h3>
+<p class="has-line-data" data-line-start="1160" data-line-end="1161">This event is triggered when the erase conversation
+    history button is clicked. No parameters are passed to the subscribers.</p>
+<pre><code class="has-line-data" data-line-start="1162" data-line-end="1166" class="language-js">Bots.on(<span class="hljs-string">'click:erase'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Conversation history is erased.'</span>);
+})
+</code></pre>
+<h3 class="code-line" data-line-start=1167 data-line-end=1168><a id="clickvoicetoggle_1167"></a>click:voicetoggle</h3>
+<p class="has-line-data" data-line-start="1169" data-line-end="1170">This event is triggered when the voice activation
+    button is toggled. The subscribers receive the Boolean status - <code>true</code> if the voice is activated,
+    <code>false</code> if it is deactivated.</p>
+<pre><code class="has-line-data" data-line-start="1171" data-line-end="1179" class="language-js">Bots.on(<span class="hljs-string">'click:voicetoggle'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">status</span>) </span>{
+    <span class="hljs-keyword">if</span> (status === <span class="hljs-literal">true</span>) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Voice recording is started.'</span>);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Voice recording is stopped.'</span>);
+    }
+})
+</code></pre>
+<h2 class="code-line" data-line-start=1180 data-line-end=1181><a id="Features_1180"></a>Features</h2>
+<h3 class="code-line" data-line-start=1182 data-line-end=1183><a id="Autocomplete_1182"></a>Autocomplete</h3>
+<p class="has-line-data" data-line-start="1184" data-line-end="1185"><code>Feature Flag: enableAutocomplete</code></p>
+<p class="has-line-data" data-line-start="1186" data-line-end="1187">
+    <code>Enable client side caching: enableAutocompleteClientCache</code></p>
+<p class="has-line-data" data-line-start="1188" data-line-end="1189">Autocomplete provides suggestions to end users to
+    better form the utterance and select the specific entity value. For it to work, you must add autocomplete
+    suggestions to the skill’s intents. Then, whenever the user types a character in the input, the intents’
+    autocomplete suggestions display in a popup to suggest the best format and to minimize user errors. An intent’s
+    autocomplete suggestions should not be a full word dictionary. Their purpose is to minimize the scope and allow
+    better guidance to the end user.</p>
+<p class="has-line-data" data-line-start="1190" data-line-end="1191">The feature can also be used in headless mode using
+    <code>getSuggestions()</code> API. The API details are described in the Method section above.</p>
+<h3 class="code-line" data-line-start=1192 data-line-end=1193><a id="Delegation_1192"></a>Delegation</h3>
+<p class="has-line-data" data-line-start="1194" data-line-end="1195"><code>Feature configuration: delegate</code></p>
+<p class="has-line-data" data-line-start="1196" data-line-end="1197">The delegation feature lets you set a delegate to
+    receive callbacks before certain events in the conversation. To set a delegate, pass it in the <code>delegate</code>
+    property or use the <code>setDelegate</code> method. The delegate object may optionally contain
+    <code>beforeDisplay</code>, <code>beforeSend</code>, and <code>beforePostbackSend</code> delegate functions.</p>
+<pre><code class="has-line-data" data-line-start="1199" data-line-end="1213" class="language-js"><span class="hljs-keyword">const</span> delegate = {
+    beforeDisplay: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+        <span class="hljs-keyword">return</span> message;
+    },
+    beforeSend: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+        <span class="hljs-keyword">return</span> message;
+    },
+    beforePostbackSend: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">postback</span>) </span>{
+        <span class="hljs-keyword">return</span> postback;
+    }
+}
+
+Bots.setDelegate(delegate);
+</code></pre>
+<h4 class="code-line" data-line-start=1214 data-line-end=1215><a id="beforeDisplay_1214"></a>beforeDisplay</h4>
+<p class="has-line-data" data-line-start="1216" data-line-end="1217">The <code>beforeDisplay</code> delegate allows a
+    skill message to be modified before it is displayed in the conversation. The message returned by the delegate is
+    used to display the message. If it returns a falsy value, like <code>null</code>, <code>undefined</code>, or
+    <code>false</code>, the message is not displayed.</p>
+<h4 class="code-line" data-line-start=1218 data-line-end=1219><a id="beforeSend_1218"></a>beforeSend</h4>
+<p class="has-line-data" data-line-start="1220" data-line-end="1221">The <code>beforeSend</code> delegate allows a user
+    message to be modified before it is sent to the chat server. The message returned by the delegate is sent to skill.
+    If it returns a falsy value, like <code>null</code>, <code>undefined</code>, or <code>false</code>, the message is
+    not displayed.</p>
+<h4 class="code-line" data-line-start=1222 data-line-end=1223><a id="beforePostbackSend_1222"></a>beforePostbackSend
+</h4>
+<p class="has-line-data" data-line-start="1224" data-line-end="1225">The <code>beforePostbackSend</code> delegate is
+    similar to <code>beforeSend</code>, just applied to postback messages from user. The postback returned by the
+    delegate is sent to skill. If it returns a falsy value, like <code>null</code>, <code>undefined</code>, or
+    <code>false</code>, the message is not displayed.</p>
+<h3 class="code-line" data-line-start=1227 data-line-end=1228><a id="Embedded_mode_1227"></a>Embedded mode</h3>
+<p class="has-line-data" data-line-start="1229" data-line-end="1230"><code>Feature flag: embedded</code></p>
+<p class="has-line-data" data-line-start="1231" data-line-end="1232">
+    <code>Pass ID of target container element: targetElement</code></p>
+<p class="has-line-data" data-line-start="1233" data-line-end="1234">The chat widget appears as a fixed position element
+    on the bottom right of the page, which does not respond to gestures on the page. But it can also be embedded into
+    the host and become part of the page. To activate the embedded mode, you need to pass <code>embedded: true</code>,
+    and provide a target container with <code>targetElement: &lt;targetDivId&gt;</code> . This accepts a DOM element
+    which will be used as the container where the widget will be rendered.</p>
+<p class="has-line-data" data-line-start="1235" data-line-end="1236">The embedded widget occupies the full width and
+    height of the container. A height and width must be specified for the target element. Otherwise, the widget will
+    collapse.</p>
+<h3 class="code-line" data-line-start=1238 data-line-end=1239><a id="Headless_SDK_1238"></a>Headless SDK</h3>
+<p class="has-line-data" data-line-start="1240" data-line-end="1241"><code>Feature flag: enableHeadless</code></p>
+<p class="has-line-data" data-line-start="1242" data-line-end="1243">Similar to headless browsers, the SDK can also be
+    used without a UI. The SDK maintains the connection to the server, and provides APIs to send messages, receive
+    messages, and get updates of the to network status. Developers can use the APIs to interact with the SDK, and update
+    UI appropriately.</p>
+<p class="has-line-data" data-line-start="1244" data-line-end="1245">The communication can be implemented as follows:
+</p>
+<ul>
+    <li class="has-line-data" data-line-start="1245" data-line-end="1246">Sending messages - Call
+        <code>Bots.sendMessage(message)</code> to pass any payload to server.</li>
+    <li class="has-line-data" data-line-start="1246" data-line-end="1247">Receiving messages - Response can be listened
+        for using <code>Bots.on('message:received', &lt;messageReceivedCallbackFunction&gt;)</code>.</li>
+    <li class="has-line-data" data-line-start="1247" data-line-end="1252">Get connection status update - Updates to
+        status of the connection to server can be listened for using
+        <code>Bots.on('networkstatuschange', &lt;networkStatusCallbackFunction&gt;)</code>. The callback has a parameter
+        <code>status</code>, which is updated with values from 0 to 3. These values map to <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Constants">WebSocket states</a>:
+        <ul>
+            <li class="has-line-data" data-line-start="1248" data-line-end="1249">0 - WebSocket.CONNECTING - Connecting
+            </li>
+            <li class="has-line-data" data-line-start="1249" data-line-end="1250">1 - WebSocket.OPEN - Open</li>
+            <li class="has-line-data" data-line-start="1250" data-line-end="1251">2 - WebSocket.CLOSING - Closing</li>
+            <li class="has-line-data" data-line-start="1251" data-line-end="1252">3 - WebSocket.CLOSED - Closed</li>
+        </ul>
+    </li>
+    <li class="has-line-data" data-line-start="1252" data-line-end="1253">Check if connection is open - Call
+        <code>Bots.isConnected()</code> to check if the connection is open or not.</li>
+    <li class="has-line-data" data-line-start="1253" data-line-end="1254">Get suggestions list - If autocomplete is
+        enabled, call <code>Bots.getSuggestions(query)</code> where query is the string to get the suggestions list.
+    </li>
+</ul>
+<h3 class="code-line" data-line-start=1256 data-line-end=1257><a id="Long_Polling_1256"></a>Long Polling</h3>
+<p class="has-line-data" data-line-start="1258" data-line-end="1259"><code>Feature flag: enableLongPolling</code></p>
+<p class="has-line-data" data-line-start="1260" data-line-end="1261">The SDK uses WebSockets to connect to the server
+    and converse with skills. If for some reason the WebSocket is disabled over the network, traditional http calls can
+    be used to chat with the skill. This feature is known as long polling, as the SDK has to continuously call or ‘poll’
+    the server to fetch the latest messages from the skill.</p>
+<p class="has-line-data" data-line-start="1262" data-line-end="1263">Long polling provides fallback support for
+    conversations on browsers which don’t have WebSockets enabled or blocked.</p>
+<h3 class="code-line" data-line-start=1265 data-line-end=1266><a id="Response_narration_1265"></a>Response narration
+</h3>
+<p class="has-line-data" data-line-start="1267" data-line-end="1268"><code>Feature flag: enableBotAudioResponse</code>
+</p>
+<p class="has-line-data" data-line-start="1269" data-line-end="1270">
+    <code>Functionality configuration: skillVoices</code></p>
+<p class="has-line-data" data-line-start="1271" data-line-end="1272">The SDK can use the device’s speech synthesis APIs
+    to narrate the server’s responses. You use the <code>skillVoices</code> array to set the voice preferences. Each
+    item in the array must be an object that has a <code>lang</code> field and an optional <code>name</code> field. The
+    SDK looks up the availability of each voice on the device in the order that they are passed in the setting, and the
+    first complete match is set as the voice. If no exact match is found, then the SDK uses the first match based on the
+    <code>lang</code> value alone. If there’s still no match, then the SDK uses the device’s default language.</p>
+<pre><code class="has-line-data" data-line-start="1274" data-line-end="1288" class="language-js"><span class="hljs-keyword">const</span> settings = {
+    ...,
+    enableBotAudioResponse: <span class="hljs-literal">true</span>,
+    skillVoices: [{
+        lang: <span class="hljs-string">'en-US'</span>,
+        name: <span class="hljs-string">'Samantha'</span>
+    }, {
+        lang: <span class="hljs-string">'en-US'</span>,
+        name: <span class="hljs-string">'Alex'</span>
+    }, {
+        lang: <span class="hljs-string">'en-UK'</span>
+    }]
+}
+</code></pre>
+<h3 class="code-line" data-line-start=1290 data-line-end=1291><a id="Voice_Recognition_1290"></a>Voice Recognition</h3>
+<p class="has-line-data" data-line-start="1292" data-line-end="1293"><code>Feature flag: enableSpeech</code></p>
+<p class="has-line-data" data-line-start="1294" data-line-end="1295">
+    <code>Functionality configuration: enableSpeechAutoSend</code></p>
+<p class="has-line-data" data-line-start="1296" data-line-end="1297">The SDK has been integrated with speech recognition
+    to send messages in the form of voice to skills and digital assistants. It allows users to talk directly to the
+    skill during conversations and get appropriate responses.</p>
+<p class="has-line-data" data-line-start="1298" data-line-end="1299">When the feature is enabled, a mic button appears
+    in place of the send button whenever the user input field is empty. The user can click on the mic button to start
+    voice recording and send it to the speech server for recognition. The speech is converted to text and sent to the
+    skill/DA. If the speech is partially recognized, the partial result is set in the user input field and the user can
+    clean it up before sending it.</p>
+<p class="has-line-data" data-line-start="1300" data-line-end="1301">The feature can also be utilized using two exposed
+    methods - <code>startVoiceRecording(onSpeechRecognition, onSpeechNetworkChange)</code> to start recording, and
+    <code>stopVoiceRecording()</code> to stop recording. The APIs are detailed in the Method section above.</p>
+<p class="has-line-data" data-line-start="1302" data-line-end="1303">The <code>enableSpeechAutoSend</code> flag setting
+    lets you configure whether to send the text that’s recognized from the user’s voice directly to the chat server.
+    When set to <code>true</code> (the default), the user’s speech response is automatically sent to the chat server.
+    When set to <code>false</code>, the user’s speech response is rendered in the input text field before it is sent to
+    the chat server so that users can manually modify it before sending, or delete the message.</p>
+<h2 class="code-line" data-line-start=1304 data-line-end=1305><a id="Message_Model_1304"></a>Message Model</h2>
+<p class="has-line-data" data-line-start="1306" data-line-end="1307">To use features like headless mode and delegate, a
+    clear understanding of skill and user messages is essential. Everything received from and sent to the chat server
+    are represented as messages. This includes:</p>
+<ul>
+    <li class="has-line-data" data-line-start="1307" data-line-end="1308">Messages from user → skill (e.g. “I want to
+        order a Pizza”)</li>
+    <li class="has-line-data" data-line-start="1308" data-line-end="1310">Messages from skill → user (e.g. “What kind of
+        crust do you want?”)</li>
+</ul>
+<p class="has-line-data" data-line-start="1310" data-line-end="1311">The following section describes each of the message
+    types in more detail.</p>
+<h3 class="code-line" data-line-start=1312 data-line-end=1313><a id="Base_Types_1312"></a>Base Types</h3>
+<p class="has-line-data" data-line-start="1313" data-line-end="1314">These are the base types that are used by User →
+    Skill messages and Skill → User messages. They are the building blocks for the messages.</p>
+<h4 class="code-line" data-line-start=1316 data-line-end=1317><a id="Attachment_1316"></a>Attachment</h4>
+<p class="has-line-data" data-line-start="1317" data-line-end="1318">This represents an attachment sent User → Skill or
+    Skill → User.</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>title</td>
+            <td>A title for the attachment</td>
+            <td>string</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>The type of attachment</td>
+            <td>string (valid values: ‘audio’, ‘file’, ‘image’, ‘video’)</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>URL</td>
+            <td>The URL to download the attachment</td>
+            <td>string</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="1325" data-line-end="1326">Example JSON</p>
+<pre><code class="has-line-data" data-line-start="1327" data-line-end="1333" class="language-json">{
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Oracle Open World Promotion"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"image"</span></span>,
+    "<span class="hljs-attribute">URL</span>": <span class="hljs-value"><span class="hljs-string">"https://www.oracle.com/us/assets/hp07-oow17-promo-02-3737849.jpg"</span>
+</span>}
+</code></pre>
+<h4 class="code-line" data-line-start=1335 data-line-end=1336><a id="Location_1335"></a>Location</h4>
+<p class="has-line-data" data-line-start="1336" data-line-end="1337">This represents a Location object.</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>title</td>
+            <td>A title for the location</td>
+            <td>string</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>URL</td>
+            <td>A URL for displaying a map of the location</td>
+            <td>string</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>latitude</td>
+            <td>The GPS coordinate’s longitude value</td>
+            <td>double</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>longitude</td>
+            <td>The GPS coordinate’s longitude value</td>
+            <td>double</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="1345" data-line-end="1346">Example JSON</p>
+<pre><code class="has-line-data" data-line-start="1347" data-line-end="1354" class="language-json">{
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Oracle Headquarters"</span></span>,
+    "<span class="hljs-attribute">URL</span>": <span class="hljs-value"><span class="hljs-string">"https://www.google.com.au/maps/place/37°31'47.3%22N+122°15'57.6%22W"</span></span>,
+    "<span class="hljs-attribute">longitude</span>": <span class="hljs-value">-<span class="hljs-number">122.265987</span></span>,
+    "<span class="hljs-attribute">latitude</span>": <span class="hljs-value"><span class="hljs-number">37.529818</span>
+</span>}
+</code></pre>
+<h4 class="code-line" data-line-start=1356 data-line-end=1357><a id="Action_1356"></a>Action</h4>
+<p class="has-line-data" data-line-start="1357" data-line-end="1358">An action represents something that the user can
+    select. Every action includes the following properties:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>Action type for the action</td>
+            <td>string</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>label</td>
+            <td>Label to display for the action</td>
+            <td>string</td>
+            <td>At least one of <code>label</code> or <code>imageUrl</code> must be present</td>
+        </tr>
+        <tr>
+            <td>imageUrl</td>
+            <td>Image to display for the action</td>
+            <td>string</td>
+            <td>At least one of <code>label</code> or <code>imageUrl</code> must be present</td>
+        </tr>
+    </tbody>
+</table>
+<h5 class="code-line" data-line-start=1366 data-line-end=1367><a id="PostbackAction_1366"></a>PostbackAction</h5>
+<p class="has-line-data" data-line-start="1367" data-line-end="1369">This action will send a pre-defined postback back
+    to the skill if the user selects the action.<br>
+    It adds the following properties to the <code>Action</code> properties:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>Action type for the action</td>
+            <td>“postback”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>postback</td>
+            <td>The postback to be sent back if the action is selected</td>
+            <td>string or JSONObject</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="1375" data-line-end="1376">Example JSON</p>
+<pre><code class="has-line-data" data-line-start="1377" data-line-end="1387" class="language-json">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"postback"</span></span>,
+    "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Large Pizza"</span></span>,
+    "<span class="hljs-attribute">imageUrl</span>": <span class="hljs-value"><span class="hljs-string">"https://amicis.com/images/gallery/locations/11.jpg"</span></span>,
+    "<span class="hljs-attribute">postback</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"askSize"</span></span>,
+        "<span class="hljs-attribute">action</span>": <span class="hljs-value"><span class="hljs-string">"getCrust"</span>
+    </span>}
+</span>}
+</code></pre>
+<h5 class="code-line" data-line-start=1389 data-line-end=1390><a id="CallAction_1389"></a>CallAction</h5>
+<p class="has-line-data" data-line-start="1390" data-line-end="1392">This action will request the client to call a
+    specified phone number on the user’s behalf.<br>
+    It adds the following properties to the <code>Action</code> properties:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>Action type for the action</td>
+            <td>“call”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>phoneNumber</td>
+            <td>The phone number to call</td>
+            <td>string</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="1398" data-line-end="1399">Example JSON</p>
+<pre><code class="has-line-data" data-line-start="1400" data-line-end="1407" class="language-json">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"call"</span></span>,
+    "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Call Support"</span></span>,
+    "<span class="hljs-attribute">imageUrl</span>": <span class="hljs-value"><span class="hljs-string">"http://ahoraescuando.bluefm.com.ar/files/2016/05/cuidado.jpg"</span></span>,
+    "<span class="hljs-attribute">phoneNumber</span>": <span class="hljs-value"><span class="hljs-string">"18002231711"</span>
+</span>}
+</code></pre>
+<h5 class="code-line" data-line-start=1409 data-line-end=1410><a id="UrlAction_1409"></a>UrlAction</h5>
+<p class="has-line-data" data-line-start="1410" data-line-end="1412">This action will request the client to open a
+    website in a new tab or in an in-app browser.<br>
+    It adds the following properties to the <code>Action</code> properties:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>Action type for the action</td>
+            <td>“url”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>URL</td>
+            <td>The URL of the website to display</td>
+            <td>string</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<h5 class="code-line" data-line-start=1419 data-line-end=1420><a id="ShareAction_1419"></a>ShareAction</h5>
+<p class="has-line-data" data-line-start="1420" data-line-end="1422">This action will request the client to open a
+    sharing dialog for the user.<br>
+    It adds the following properties to the <code>Action</code> properties:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>Action type for the action</td>
+            <td>“share”</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<h5 class="code-line" data-line-start=1428 data-line-end=1429><a id="LocationAction_1428"></a>LocationAction</h5>
+<p class="has-line-data" data-line-start="1429" data-line-end="1431">This action will request the client to ask the user
+    for a location.<br>
+    It adds the following properties to the <code>Action</code> properties:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>Action type for the action</td>
+            <td>“location”</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="1436" data-line-end="1437">Example JSON</p>
+<pre><code class="has-line-data" data-line-start="1438" data-line-end="1444" class="language-json">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"location"</span></span>,
+    "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Share location"</span></span>,
+    "<span class="hljs-attribute">imageUrl</span>": <span class="hljs-value"><span class="hljs-string">"http://images.clipartpanda.com/location-clipart-location-pin-clipart-1.jpg"</span>
+</span>}
+</code></pre>
+<h4 class="code-line" data-line-start=1446 data-line-end=1447><a id="Card_1446"></a>Card</h4>
+<p class="has-line-data" data-line-start="1447" data-line-end="1448">A card represents a single card in the message
+    payload. It contains the following properties:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>title</td>
+            <td>The title of the card, displayed as the first line on the card.</td>
+            <td>string</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>The description of the card</td>
+            <td>string</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>imageUrl</td>
+            <td>URL of the image that is displayed</td>
+            <td>string</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>URL</td>
+            <td>URL of a website that is opened when taping on the card</td>
+            <td>string</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>actions</td>
+            <td>An array of actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+    </tbody>
+</table>
+<h3 class="code-line" data-line-start=1458 data-line-end=1459><a id="Conversation_Messages_1458"></a>Conversation
+    Messages</h3>
+<p class="has-line-data" data-line-start="1459" data-line-end="1460">All messages that are part of the conversation are
+    structured as follows:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>messagePayload</td>
+            <td>Message payload</td>
+            <td>Message</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>userId</td>
+            <td>User ID</td>
+            <td>string</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="1466" data-line-end="1467">Example conversation message</p>
+<pre><code class="has-line-data" data-line-start="1468" data-line-end="1476" class="language-json">{
+    "<span class="hljs-attribute">messagePayload</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"show menu"</span></span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"text"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">userId</span>": <span class="hljs-value"><span class="hljs-string">"guest"</span>
+</span>}
+</code></pre>
+<h3 class="code-line" data-line-start=1478 data-line-end=1479><a id="Message_1478"></a>Message</h3>
+<p class="has-line-data" data-line-start="1479" data-line-end="1480">Message is the abstract base type for all other
+    messages. All messages extend it to provide more information.</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>string</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<h3 class="code-line" data-line-start=1486 data-line-end=1487><a id="User_Message_1486"></a>User Message</h3>
+<p class="has-line-data" data-line-start="1487" data-line-end="1488">This represents a Message sent from user → skill.
+</p>
+<h4 class="code-line" data-line-start=1490 data-line-end=1491><a id="User_Text_Message_1490"></a>User Text Message</h4>
+<p class="has-line-data" data-line-start="1491" data-line-end="1493">This is a simple text message sent to the
+    server.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“text”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>Text message</td>
+            <td>string</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code class="has-line-data" data-line-start="1500" data-line-end="1508" class="language-json">{
+    "<span class="hljs-attribute">messagePayload</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Order Pizza"</span></span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"text"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">userId</span>": <span class="hljs-value"><span class="hljs-string">"guest"</span>
+</span>}
+</code></pre>
+<h4 class="code-line" data-line-start=1510 data-line-end=1511><a id="User_Postback_Message_1510"></a>User Postback
+    Message</h4>
+<p class="has-line-data" data-line-start="1511" data-line-end="1513">This is the postback response message sent to the
+    server.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“postback”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>Text for postback</td>
+            <td>string</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>postback</td>
+            <td>The postback of the selected action</td>
+            <td>string or JSONObject</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code class="has-line-data" data-line-start="1521" data-line-end="1536" class="language-json">{
+    "<span class="hljs-attribute">messagePayload</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">postback</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">variables</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">pizza</span>": <span class="hljs-value"><span class="hljs-string">"Small"</span>
+            </span>}</span>,
+            "<span class="hljs-attribute">system.botId</span>": <span class="hljs-value"><span class="hljs-string">"69F2D6BB-35BF-4BCA-99A0-A88D44A51B35"</span></span>,
+            "<span class="hljs-attribute">system.state</span>": <span class="hljs-value"><span class="hljs-string">"orderPizza"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"Small"</span></span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"postback"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">userId</span>": <span class="hljs-value"><span class="hljs-string">"guest"</span>
+</span>}
+</code></pre>
+<h4 class="code-line" data-line-start=1538 data-line-end=1539><a id="User_Attachment_Message_1538"></a>User Attachment
+    Message</h4>
+<p class="has-line-data" data-line-start="1539" data-line-end="1541">This is the attachment response message sent to the
+    server.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“attachment”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>attachment</td>
+            <td>Attachment metadata</td>
+            <td>Attachment</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code class="has-line-data" data-line-start="1548" data-line-end="1559" class="language-json">{
+    "<span class="hljs-attribute">messagePayload</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">attachment</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"image"</span></span>,
+            "<span class="hljs-attribute">URL</span>": <span class="hljs-value"><span class="hljs-string">"http://oda-instance.com/attachment/v1/attachments/d43fd051-02cf-4c62-a422-313979eb9d55"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"attachment"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">userId</span>": <span class="hljs-value"><span class="hljs-string">"guest"</span>
+</span>}
+</code></pre>
+<h4 class="code-line" data-line-start=1561 data-line-end=1562><a id="User_Location_Message_1561"></a>User Location
+    Message</h4>
+<p class="has-line-data" data-line-start="1562" data-line-end="1564">This is the location response message sent to the
+    server.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“location”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>location</td>
+            <td>User location information</td>
+            <td>Location</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code class="has-line-data" data-line-start="1571" data-line-end="1582" class="language-json">{
+    "<span class="hljs-attribute">messagePayload</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">location</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">latitude</span>": <span class="hljs-value"><span class="hljs-number">45.9285271</span></span>,
+            "<span class="hljs-attribute">longitude</span>": <span class="hljs-value"><span class="hljs-number">132.6101925</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"location"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">userId</span>": <span class="hljs-value"><span class="hljs-string">"guest"</span>
+</span>}
+</code></pre>
+<h3 class="code-line" data-line-start=1584 data-line-end=1585><a id="Skill_Message_1584"></a>Skill Message</h3>
+<p class="has-line-data" data-line-start="1585" data-line-end="1586">This represents a Message sent from Skill → User.
+</p>
+<h4 class="code-line" data-line-start=1588 data-line-end=1589><a id="Skill_Text_Message_1588"></a>Skill Text Message
+</h4>
+<p class="has-line-data" data-line-start="1589" data-line-end="1591">This represents a text message.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“text”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>Text of the message</td>
+            <td>string</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>actions</td>
+            <td>An array of actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>globalActions</td>
+            <td>An array of global actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code class="has-line-data" data-line-start="1600" data-line-end="1626" class="language-json">{
+    "<span class="hljs-attribute">messagePayload</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"text"</span></span>,
+        "<span class="hljs-attribute">text</span>": <span class="hljs-value"><span class="hljs-string">"What do you want to do?"</span></span>,
+        "<span class="hljs-attribute">actions</span>": <span class="hljs-value">[
+            {
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"postback"</span></span>,
+                "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Order Pizza"</span></span>,
+                "<span class="hljs-attribute">postback</span>": <span class="hljs-value">{
+                    "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"askAction"</span></span>,
+                    "<span class="hljs-attribute">action</span>": <span class="hljs-value"><span class="hljs-string">"orderPizza"</span>
+                </span>}
+            </span>},
+            {
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"postback"</span></span>,
+                "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Cancel A Previous Order"</span></span>,
+                "<span class="hljs-attribute">postback</span>": <span class="hljs-value">{
+                    "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"askAction"</span></span>,
+                    "<span class="hljs-attribute">action</span>": <span class="hljs-value"><span class="hljs-string">"cancelOrder"</span>
+                </span>}
+            </span>}
+        ]
+    </span>}</span>,
+    "<span class="hljs-attribute">userId</span>": <span class="hljs-value"><span class="hljs-string">"guest"</span>
+</span>}
+</code></pre>
+<h4 class="code-line" data-line-start=1628 data-line-end=1629><a id="Skill_Location_Message_1628"></a>Skill Location
+    Message</h4>
+<p class="has-line-data" data-line-start="1629" data-line-end="1631">This represents a location message.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“location”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>location</td>
+            <td>The location</td>
+            <td>Location</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>actions</td>
+            <td>An array of actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>globalActions</td>
+            <td>An array of global actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+    </tbody>
+</table>
+<h4 class="code-line" data-line-start=1640 data-line-end=1641><a id="Skill_Attachment_Message_1640"></a>Skill Attachment
+    Message</h4>
+<p class="has-line-data" data-line-start="1641" data-line-end="1643">This represents an attachment message.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“attachment”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>attachment</td>
+            <td>The attachment sent</td>
+            <td>Attachment</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>actions</td>
+            <td>An array of actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>globalActions</td>
+            <td>An array of global actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+    </tbody>
+</table>
+<h4 class="code-line" data-line-start=1652 data-line-end=1653><a id="Skill_Card_Message_1652"></a>Skill Card Message
+</h4>
+<p class="has-line-data" data-line-start="1653" data-line-end="1655">This represents a set of choices displayed to the
+    user, either horizontally like a carousal or vertically like a list.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“card”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>layout</td>
+            <td>Whether to display the cards horizontally or vertically</td>
+            <td>string (values: horizontal, vertical)</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>cards</td>
+            <td>Array of cards to be rendered</td>
+            <td>Array&lt;Card&gt;</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>headerText</td>
+            <td>A header text for cards</td>
+            <td>string</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>actions</td>
+            <td>An array of actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>globalActions</td>
+            <td>An array of global actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+    </tbody>
+</table>
+<p class="has-line-data" data-line-start="1665" data-line-end="1666">Example JSON</p>
+<pre><code class="has-line-data" data-line-start="1667" data-line-end="1744" class="language-json">{
+    "<span class="hljs-attribute">messagePayload</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"card"</span></span>,
+        "<span class="hljs-attribute">layout</span>": <span class="hljs-value"><span class="hljs-string">"horizontal"</span></span>,
+        "<span class="hljs-attribute">cards</span>": <span class="hljs-value">[
+            {
+                "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Hawaiian Pizza"</span></span>,
+                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Ham and pineapple on thin crust"</span></span>,
+                "<span class="hljs-attribute">actions</span>": <span class="hljs-value">[
+                    {
+                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"postback"</span></span>,
+                        "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Order Small"</span></span>,
+                        "<span class="hljs-attribute">postback</span>": <span class="hljs-value">{
+                            "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"GetOrder"</span></span>,
+                            "<span class="hljs-attribute">variables</span>": <span class="hljs-value">{
+                                "<span class="hljs-attribute">pizzaType</span>": <span class="hljs-value"><span class="hljs-string">"hawaiian"</span></span>,
+                                "<span class="hljs-attribute">pizzaCrust</span>": <span class="hljs-value"><span class="hljs-string">"thin"</span></span>,
+                                "<span class="hljs-attribute">pizzaSize</span>": <span class="hljs-value"><span class="hljs-string">"small"</span>
+                            </span>}
+                        </span>}
+                    </span>},
+                    {
+                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"postback"</span></span>,
+                        "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Order Large"</span></span>,
+                        "<span class="hljs-attribute">postback</span>": <span class="hljs-value">{
+                            "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"GetOrder"</span></span>,
+                            "<span class="hljs-attribute">variables</span>": <span class="hljs-value">{
+                                "<span class="hljs-attribute">pizzaType</span>": <span class="hljs-value"><span class="hljs-string">"hawaiian"</span></span>,
+                                "<span class="hljs-attribute">pizzaCrust</span>": <span class="hljs-value"><span class="hljs-string">"thin"</span></span>,
+                                "<span class="hljs-attribute">pizzaSize</span>": <span class="hljs-value"><span class="hljs-string">"large"</span>
+                            </span>}
+                        </span>}
+                    </span>}
+                ]
+            </span>},
+            {
+                "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Cheese Pizza"</span></span>,
+                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Cheese pizza (i.e. pizza with NO toppings) on thick crust"</span></span>,
+                "<span class="hljs-attribute">actions</span>": <span class="hljs-value">[
+                    {
+                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"postback"</span></span>,
+                        "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Order Small"</span></span>,
+                        "<span class="hljs-attribute">postback</span>": <span class="hljs-value">{
+                            "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"GetOrder"</span></span>,
+                            "<span class="hljs-attribute">variables</span>": <span class="hljs-value">{
+                                "<span class="hljs-attribute">pizzaType</span>": <span class="hljs-value"><span class="hljs-string">"cheese"</span></span>,
+                                "<span class="hljs-attribute">pizzaCrust</span>": <span class="hljs-value"><span class="hljs-string">"thick"</span></span>,
+                                "<span class="hljs-attribute">pizzaSize</span>": <span class="hljs-value"><span class="hljs-string">"small"</span>
+                            </span>}
+                        </span>}
+                    </span>},
+                    {
+                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"postback"</span></span>,
+                        "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Order Large"</span></span>,
+                        "<span class="hljs-attribute">postback</span>": <span class="hljs-value">{
+                            "<span class="hljs-attribute">state</span>": <span class="hljs-value"><span class="hljs-string">"GetOrder"</span></span>,
+                            "<span class="hljs-attribute">variables</span>": <span class="hljs-value">{
+                                "<span class="hljs-attribute">pizzaType</span>": <span class="hljs-value"><span class="hljs-string">"cheese"</span></span>,
+                                "<span class="hljs-attribute">pizzaCrust</span>": <span class="hljs-value"><span class="hljs-string">"thick"</span></span>,
+                                "<span class="hljs-attribute">pizzaSize</span>": <span class="hljs-value"><span class="hljs-string">"large"</span>
+                            </span>}
+                        </span>}
+                    </span>}
+                ]
+            </span>}
+        ]</span>,
+        "<span class="hljs-attribute">globalActions</span>": <span class="hljs-value">[
+            {
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"call"</span></span>,
+                "<span class="hljs-attribute">label</span>": <span class="hljs-value"><span class="hljs-string">"Call for Help"</span></span>,
+                "<span class="hljs-attribute">phoneNumber</span>": <span class="hljs-value"><span class="hljs-string">"123456789"</span>
+            </span>}
+        ]
+    </span>}</span>,
+    "<span class="hljs-attribute">userId</span>": <span class="hljs-value"><span class="hljs-string">"guest"</span>
+</span>}
+</code></pre>
+<h4 class="code-line" data-line-start=1746 data-line-end=1747><a id="Skill_Postback_Message_1746"></a>Skill Postback
+    Message</h4>
+<p class="has-line-data" data-line-start="1747" data-line-end="1749">This represents a postback.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“postback”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>Text of the message</td>
+            <td>string</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>postback</td>
+            <td>The postback</td>
+            <td>string or JSONObject</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>actions</td>
+            <td>An array of actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>globalActions</td>
+            <td>An array of global actions related to the text</td>
+            <td>Array&lt;Action&gt;</td>
+            <td>No</td>
+        </tr>
+    </tbody>
+</table>
+<h4 class="code-line" data-line-start=1759 data-line-end=1760><a id="Skill_Raw_Message_1759"></a>Skill Raw Message</h4>
+<p class="has-line-data" data-line-start="1760" data-line-end="1762">This is used when a component creates the
+    channel-specific payload itself.<br>
+    It applies the following properties to the Message:</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Required</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>The message type</td>
+            <td>“raw”</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>payload</td>
+            <td>The channel-specific payload</td>
+            <td>JSONObject</td>
+            <td>Yes</td>
+        </tr>
+    </tbody>
+</table>
+<h2 class="code-line" data-line-start=1769 data-line-end=1770><a id="Limitations_1769"></a>Limitations</h2>
+<p class="has-line-data" data-line-start="1771" data-line-end="1772">There are a few limitations on the usage of current
+    Web SDK.</p>
+<ul>
+    <li class="has-line-data" data-line-start="1773" data-line-end="1774">The responses from the skill may become
+        incorrect if the network goes offline in between a chat and comes back online within a short time (such as
+        within 10 seconds). This only happens when a server response is lost due to network failure. In such cases, the
+        user may have to send the previous message again, or may need to start the conversation afresh. The skill can be
+        designed to handle such cases.</li>
+    <li class="has-line-data" data-line-start="1774" data-line-end="1775">The attachment file size is limited to 25 MB.
+        Larger files can not be uploaded in this release.</li>
+    <li class="has-line-data" data-line-start="1775" data-line-end="1776">The SDK currently only supports a single
+        connection to the ODA instance per userId per browser or device. If multiple connections are made using the same
+        userId from several devices, or multiple browsers on single device, then only skill/DA responses will be
+        synchronized on all clients, not user messages.</li>
+</ul>
+</body>
+
+</html>
